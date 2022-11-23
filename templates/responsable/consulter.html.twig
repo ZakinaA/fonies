@@ -56,35 +56,7 @@
 		{% for e in responsable.eleve %}
 		<tr>
 			<td><a class="text-decoration-none" href="">{{ e.nom }}</a></td>
-			<td>{{ e.prenom }}</a></td>
-			<td>{{ e.numRue}} {{e.rue}}</td>
-			<td>{{ e.ville}}</td>
-		</tr>
-	{% else %}
-		<tr>
-		<td>Aucun etudiant n'a été trouvé.</td>
-		
-	{% endfor %}
-		</tr>
-	</table>
-
-<br/>
-<br/>
-    <table>
-        <h5>Liste de vos paiements :</h5>
-	
-		</br>
-		<tr>
-		<td>Date</td>
-		<td>Montant</td>
-		<td>Rue</td>
-		<td>Ville</td>
-		</tr>
-
-		{% for e in responsable.eleve %}
-		<tr>
-			<td><a class="text-decoration-none" href="">{{ e.nom }}</a></td>
-			<td>{{ e.prenom }}</a></td>
+			<td>{{ e.prenom }}</td>
 			<td>{{ e.numRue}} {{e.rue}}</td>
 			<td>{{ e.ville}}</td>
 		</tr>
