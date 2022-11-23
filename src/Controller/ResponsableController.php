@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 
 class ResponsableController extends AbstractController
 {
@@ -30,7 +32,7 @@ public function consulterResponsable(ManagerRegistry $doctrine, int $id){
     }
 
     return $this->render('responsable/consulter.html.twig', [
-        'responsable' => $responsable,]);
+        'presponsable' => $responsable,]);
 
 }
 

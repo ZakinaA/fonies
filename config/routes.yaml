@@ -1,3 +1,10 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+
+# responsable
+
+responsableConsulter:
+    path: /responsable/consulter/{id}
+    controller: App\Controller\ResponsableController::consulterResponsable
