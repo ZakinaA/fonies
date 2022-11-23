@@ -1,0 +1,22 @@
+<html>
+
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+		
+		LISTE DES COURS</br>
+		<table>
+        {% for j in cours.jour %}
+
+		{% for m in pMaisons %}
+		<tr>
+			<td><a href="{{ path('maisonConsulter', { 'id': m.id }) }}">{{ m.nom }}</a></td>
+	{% else %}
+		<tr>
+		<td>Aucun maison n'a été trouvé.</td>
+		</tr>
+	{% endfor %}
+</table>
+	
+	 
+</html>
