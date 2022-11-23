@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Responsable;
+use App\Entity\Eleve;
+
 
 class ResponsableController extends AbstractController
 {
@@ -26,6 +28,8 @@ public function consulterResponsable(ManagerRegistry $doctrine, int $id){
 
     $responsable= $doctrine->getRepository(Responsable::class)->find($id);
 
+
+    $eleves = $doctrine->getRepository(Eleve::class)->findByResponsable($id);
     if (!$responsable) {
         throw $this->createNotFoundException(
         'Aucun responsable trouvé avec le numéro '.$id
@@ -33,7 +37,8 @@ public function consulterResponsable(ManagerRegistry $doctrine, int $id){
     }
 
     return $this->render('responsable/consulter.html.twig', [
-        'responsable' => $responsable,]);
+        'responsable' => $responsable,
+        'eleves' => $eleves,]);
 
 }
 
