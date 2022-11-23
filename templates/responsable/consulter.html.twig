@@ -5,10 +5,11 @@
     </head>
     <body>
 
-    <h3>Page du responsable :</h3>
-    </div>
+    <h1>Page du responsable :</h1>
+    </div><br />
 	
   	<table>
+    <h3>Vos informations</h3>
 
     <tr>
     	<td>Nom : </td><td>{{responsable.nom}}</td></tr></tr>
@@ -19,11 +20,11 @@
     <tr>
 
     <tr>
-    	<td>Rue : </td><td>{{responsable.numRue}}</td><td>{{responsable.rue}}</td></tr></tr>
+    	<td>Rue : </td><td>{{responsable.numRue}} {{responsable.rue}}</td></tr></tr>
     <tr>
 
     <tr>
-    	<td>Ville : </td><td>{{responsable.codePostal}}</td><td>{{responsable.ville}}</td></tr></tr>
+    	<td>Ville : </td><td>{{responsable.codePostal}} {{responsable.ville}}</td></tr></tr>
     <tr>
 
     <tr>
@@ -33,6 +34,16 @@
     <tr>
     	<td>Numéro de téléphone : </td><td>{{responsable.telephone}}</td></tr></tr>
     <tr>
+    
+    <tr>
+    	<td>tranche de paiement : </td><td>{{responsable.tranche.quotientmin}} / {{responsable.tranche.quotientmax}}</td></tr></tr>
+    <tr>
+    
+
+
+
+
+
 
     </body>
 </html>
