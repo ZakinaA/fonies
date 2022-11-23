@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProfesseurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProfesseurRepository::class)]
@@ -33,6 +35,22 @@ class Professeur
 
     #[ORM\Column(length: 10)]
     private ?string $telephone = null;
+
+    #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Compte::class)]
+    private Collection $comptes;
+
+    #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Cours::class)]
+    private Collection $cours;
+
+    #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Enseigne::class)]
+    private Collection $enseignes;
+
+    public function __construct()
+    {
+        $this->comptes = new ArrayCollection();
+        $this->cours = new ArrayCollection();
+        $this->enseignes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +137,96 @@ class Professeur
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Compte>
+     */
+    public function getComptes(): Collection
+    {
+        return $this->comptes;
+    }
+
+    public function addCompte(Compte $compte): self
+    {
+        if (!$this->comptes->contains($compte)) {
+            $this->comptes->add($compte);
+            $compte->setProfesseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompte(Compte $compte): self
+    {
+        if ($this->comptes->removeElement($compte)) {
+            // set the owning side to null (unless already changed)
+            if ($compte->getProfesseur() === $this) {
+                $compte->setProfesseur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Cours>
+     */
+    public function getCours(): Collection
+    {
+        return $this->cours;
+    }
+
+    public function addCour(Cours $cour): self
+    {
+        if (!$this->cours->contains($cour)) {
+            $this->cours->add($cour);
+            $cour->setProfesseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCour(Cours $cour): self
+    {
+        if ($this->cours->removeElement($cour)) {
+            // set the owning side to null (unless already changed)
+            if ($cour->getProfesseur() === $this) {
+                $cour->setProfesseur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Enseigne>
+     */
+    public function getEnseignes(): Collection
+    {
+        return $this->enseignes;
+    }
+
+    public function addEnseigne(Enseigne $enseigne): self
+    {
+        if (!$this->enseignes->contains($enseigne)) {
+            $this->enseignes->add($enseigne);
+            $enseigne->setProfesseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnseigne(Enseigne $enseigne): self
+    {
+        if ($this->enseignes->removeElement($enseigne)) {
+            // set the owning side to null (unless already changed)
+            if ($enseigne->getProfesseur() === $this) {
+                $enseigne->setProfesseur(null);
+            }
+        }
 
         return $this;
     }

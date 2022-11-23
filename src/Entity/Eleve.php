@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EleveRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EleveRepository::class)]
@@ -36,6 +38,25 @@ class Eleve
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
+
+    #[ORM\ManyToOne(inversedBy: 'eleve')]
+    private ?Responsable $responsable = null;
+
+    #[ORM\OneToMany(mappedBy: 'eleve', targetEntity: Compte::class)]
+    private Collection $compte;
+
+    #[ORM\OneToMany(mappedBy: 'eleve', targetEntity: Inscription::class)]
+    private Collection $inscription;
+
+    #[ORM\OneToMany(mappedBy: 'eleve', targetEntity: ContratPret::class)]
+    private Collection $contratPret;
+
+    public function __construct()
+    {
+        $this->compte = new ArrayCollection();
+        $this->inscription = new ArrayCollection();
+        $this->contratPret = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -134,6 +155,108 @@ class Eleve
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getResponsable(): ?Responsable
+    {
+        return $this->responsable;
+    }
+
+    public function setResponsable(?Responsable $responsable): self
+    {
+        $this->responsable = $responsable;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Compte>
+     */
+    public function getCompte(): Collection
+    {
+        return $this->compte;
+    }
+
+    public function addCompte(Compte $compte): self
+    {
+        if (!$this->compte->contains($compte)) {
+            $this->compte->add($compte);
+            $compte->setEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompte(Compte $compte): self
+    {
+        if ($this->compte->removeElement($compte)) {
+            // set the owning side to null (unless already changed)
+            if ($compte->getEleve() === $this) {
+                $compte->setEleve(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Inscription>
+     */
+    public function getInscription(): Collection
+    {
+        return $this->inscription;
+    }
+
+    public function addInscription(Inscription $inscription): self
+    {
+        if (!$this->inscription->contains($inscription)) {
+            $this->inscription->add($inscription);
+            $inscription->setEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): self
+    {
+        if ($this->inscription->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getEleve() === $this) {
+                $inscription->setEleve(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ContratPret>
+     */
+    public function getContratPret(): Collection
+    {
+        return $this->contratPret;
+    }
+
+    public function addContratPret(ContratPret $contratPret): self
+    {
+        if (!$this->contratPret->contains($contratPret)) {
+            $this->contratPret->add($contratPret);
+            $contratPret->setEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContratPret(ContratPret $contratPret): self
+    {
+        if ($this->contratPret->removeElement($contratPret)) {
+            // set the owning side to null (unless already changed)
+            if ($contratPret->getEleve() === $this) {
+                $contratPret->setEleve(null);
+            }
+        }
 
         return $this;
     }

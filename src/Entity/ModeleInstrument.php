@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ModeleInstrumentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ModeleInstrumentRepository::class)]
@@ -15,6 +17,14 @@ class ModeleInstrument
 
     #[ORM\Column(length: 50)]
     private ?string $libelle = null;
+
+    #[ORM\OneToMany(mappedBy: 'modeleInstrument', targetEntity: Instrument::class)]
+    private Collection $instruments;
+
+    public function __construct()
+    {
+        $this->instruments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -29,6 +39,36 @@ class ModeleInstrument
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Instrument>
+     */
+    public function getInstruments(): Collection
+    {
+        return $this->instruments;
+    }
+
+    public function addInstrument(Instrument $instrument): self
+    {
+        if (!$this->instruments->contains($instrument)) {
+            $this->instruments->add($instrument);
+            $instrument->setModeleInstrument($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInstrument(Instrument $instrument): self
+    {
+        if ($this->instruments->removeElement($instrument)) {
+            // set the owning side to null (unless already changed)
+            if ($instrument->getModeleInstrument() === $this) {
+                $instrument->setModeleInstrument(null);
+            }
+        }
 
         return $this;
     }

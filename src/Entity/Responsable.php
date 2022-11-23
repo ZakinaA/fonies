@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ResponsableRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ResponsableRepository::class)]
@@ -36,6 +38,21 @@ class Responsable
 
     #[ORM\Column]
     private ?int $telephone = null;
+
+    #[ORM\ManyToOne(inversedBy: 'responsables')]
+    private ?Tranche $tranche = null;
+
+    #[ORM\OneToMany(mappedBy: 'responsable', targetEntity: Compte::class)]
+    private Collection $compte;
+
+    #[ORM\OneToMany(mappedBy: 'responsable', targetEntity: Eleve::class)]
+    private Collection $eleve;
+
+    public function __construct()
+    {
+        $this->compte = new ArrayCollection();
+        $this->eleve = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -134,6 +151,78 @@ class Responsable
     public function setTelephone(int $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getTranche(): ?Tranche
+    {
+        return $this->tranche;
+    }
+
+    public function setTranche(?Tranche $tranche): self
+    {
+        $this->tranche = $tranche;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Compte>
+     */
+    public function getCompte(): Collection
+    {
+        return $this->compte;
+    }
+
+    public function addCompte(Compte $compte): self
+    {
+        if (!$this->compte->contains($compte)) {
+            $this->compte->add($compte);
+            $compte->setResponsable($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompte(Compte $compte): self
+    {
+        if ($this->compte->removeElement($compte)) {
+            // set the owning side to null (unless already changed)
+            if ($compte->getResponsable() === $this) {
+                $compte->setResponsable(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Eleve>
+     */
+    public function getEleve(): Collection
+    {
+        return $this->eleve;
+    }
+
+    public function addEleve(Eleve $eleve): self
+    {
+        if (!$this->eleve->contains($eleve)) {
+            $this->eleve->add($eleve);
+            $eleve->setResponsable($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEleve(Eleve $eleve): self
+    {
+        if ($this->eleve->removeElement($eleve)) {
+            // set the owning side to null (unless already changed)
+            if ($eleve->getResponsable() === $this) {
+                $eleve->setResponsable(null);
+            }
+        }
 
         return $this;
     }

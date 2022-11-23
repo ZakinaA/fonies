@@ -16,6 +16,9 @@ class Accessoire
     #[ORM\Column(length: 50)]
     private ?string $libelle = null;
 
+    #[ORM\ManyToOne(inversedBy: 'accessoire')]
+    private ?Instrument $instrument = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class Accessoire
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getInstrument(): ?Instrument
+    {
+        return $this->instrument;
+    }
+
+    public function setInstrument(?Instrument $instrument): self
+    {
+        $this->instrument = $instrument;
 
         return $this;
     }

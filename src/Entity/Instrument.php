@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\InstrumentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -34,6 +36,27 @@ class Instrument
 
     #[ORM\Column(length: 150, nullable: true)]
     private ?string $cheminImage = null;
+
+    #[ORM\ManyToOne(inversedBy: 'instruments')]
+    private ?TypeInstrument $typeInstrument = null;
+
+    #[ORM\OneToMany(mappedBy: 'instrument', targetEntity: Accessoire::class)]
+    private Collection $accessoire;
+
+    #[ORM\ManyToOne(inversedBy: 'instruments')]
+    private ?MarqueInstrument $marqueInstrument = null;
+
+    #[ORM\ManyToOne(inversedBy: 'instruments')]
+    private ?ModeleInstrument $modeleInstrument = null;
+
+    #[ORM\OneToMany(mappedBy: 'instrument', targetEntity: ContratPret::class)]
+    private Collection $contratPret;
+
+    public function __construct()
+    {
+        $this->accessoire = new ArrayCollection();
+        $this->contratPret = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +143,102 @@ class Instrument
     public function setCheminImage(?string $cheminImage): self
     {
         $this->cheminImage = $cheminImage;
+
+        return $this;
+    }
+
+    public function getTypeInstrument(): ?TypeInstrument
+    {
+        return $this->typeInstrument;
+    }
+
+    public function setTypeInstrument(?TypeInstrument $typeInstrument): self
+    {
+        $this->typeInstrument = $typeInstrument;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Accessoire>
+     */
+    public function getAccessoire(): Collection
+    {
+        return $this->accessoire;
+    }
+
+    public function addAccessoire(Accessoire $accessoire): self
+    {
+        if (!$this->accessoire->contains($accessoire)) {
+            $this->accessoire->add($accessoire);
+            $accessoire->setInstrument($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAccessoire(Accessoire $accessoire): self
+    {
+        if ($this->accessoire->removeElement($accessoire)) {
+            // set the owning side to null (unless already changed)
+            if ($accessoire->getInstrument() === $this) {
+                $accessoire->setInstrument(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getMarqueInstrument(): ?MarqueInstrument
+    {
+        return $this->marqueInstrument;
+    }
+
+    public function setMarqueInstrument(?MarqueInstrument $marqueInstrument): self
+    {
+        $this->marqueInstrument = $marqueInstrument;
+
+        return $this;
+    }
+
+    public function getModeleInstrument(): ?ModeleInstrument
+    {
+        return $this->modeleInstrument;
+    }
+
+    public function setModeleInstrument(?ModeleInstrument $modeleInstrument): self
+    {
+        $this->modeleInstrument = $modeleInstrument;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ContratPret>
+     */
+    public function getContratPret(): Collection
+    {
+        return $this->contratPret;
+    }
+
+    public function addContratPret(ContratPret $contratPret): self
+    {
+        if (!$this->contratPret->contains($contratPret)) {
+            $this->contratPret->add($contratPret);
+            $contratPret->setInstrument($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContratPret(ContratPret $contratPret): self
+    {
+        if ($this->contratPret->removeElement($contratPret)) {
+            // set the owning side to null (unless already changed)
+            if ($contratPret->getInstrument() === $this) {
+                $contratPret->setInstrument(null);
+            }
+        }
 
         return $this;
     }
