@@ -15,4 +15,12 @@ class JourController extends AbstractController
             'controller_name' => 'JourController',
         ]);
     }
+
+    public function listerJour(ManagerRegistry $doctrine){
+        $repository = $doctrine->getRepository(Jour::class);
+        $jours = $repository->findAll();
+        return $this->render('cours/lister.html.twig', [
+            'pJours' => $jours,]);	
+            
+    }
 }
