@@ -1,3 +1,7 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+Test:
+    path: /index
+    controller: App\Controller\TestController::index
