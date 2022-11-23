@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Responsable;
 
 class ResponsableController extends AbstractController
 {
@@ -32,7 +33,7 @@ public function consulterResponsable(ManagerRegistry $doctrine, int $id){
     }
 
     return $this->render('responsable/consulter.html.twig', [
-        'presponsable' => $responsable,]);
+        'responsable' => $responsable,]);
 
 }
 
