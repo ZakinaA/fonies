@@ -10,6 +10,7 @@ use App\Entity\Cours;
 use App\Entity\Jour;
 use App\Entity\TypeCours;
 use App\Entity\TypeInstrument;
+use App\Entity\Inscription;
 
 
 class CoursController extends AbstractController
@@ -29,5 +30,4 @@ class CoursController extends AbstractController
             'pCours' => $cours,]);	
             
     }
-
 }
