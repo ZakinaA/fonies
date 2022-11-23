@@ -42,15 +42,15 @@
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                {{ c.nbPlaces - c.inscriptions.count() }}  place(s) disponible(s)</br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions == null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                1 place disponible</br>
                                 <hr>
                             {% endif %}
                         {% endif %}
@@ -66,15 +66,15 @@
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions == null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                1 place disponible</br>
                                 <hr>
                             {% endif %}
                         {% endif %}
@@ -90,15 +90,15 @@
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions == null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                1 place disponible</br>
                                 <hr>
                             {% endif %}
                         {% endif %}
@@ -114,15 +114,15 @@
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions == null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                1 place disponible</br>
                                 <hr>
                             {% endif %}
                         {% endif %}
@@ -138,15 +138,15 @@
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions == null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                1 place disponible</br>
                                 <hr>
                             {% endif %}
                         {% endif %}
@@ -162,15 +162,15 @@
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions == null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                1 place disponible</br>
                                 <hr>
                             {% endif %}
                         {% endif %}
@@ -186,15 +186,15 @@
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions == null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                {{ c.nbPlaces }} place(s) disponibles</br>
+                                1 place disponible</br>
                                 <hr>
                             {% endif %}
                         {% endif %}
@@ -204,7 +204,7 @@
             <tbody>
         </table>
 
-        LISTE DES COURS COMPLET</br>
+        LISTE DES COURS COMPLETS</br>
 		<table>
         <thead>
             <tr>
@@ -230,7 +230,7 @@
                                 Cours {{ c.typeCours.libelle }} </br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions != null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
@@ -252,7 +252,7 @@
                                 Cours {{ c.typeCours.libelle }} </br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions != null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
@@ -274,7 +274,7 @@
                                 Cours {{ c.typeCours.libelle }} </br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions != null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
@@ -296,7 +296,7 @@
                                 Cours {{ c.typeCours.libelle }} </br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions != null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
@@ -318,7 +318,7 @@
                                 Cours {{ c.typeCours.libelle }} </br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions != null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
@@ -340,7 +340,7 @@
                                 Cours {{ c.typeCours.libelle }} </br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions != null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
@@ -362,7 +362,7 @@
                                 Cours {{ c.typeCours.libelle }} </br>
                                 <hr>
                             {% endif %}
-                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions != null)%}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
                                 Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
                                 De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
