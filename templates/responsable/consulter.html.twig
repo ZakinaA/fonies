@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>Fiche du responsable </title>    
-    </head>
-    <body>
+{% extends "base.html.twig" %}
 
-    <h1>Page du responsable :</h1>
-    </div><br />
+
+
+
+{% block contenu %}
+    <h3>Page du responsable :</h3>
+    <br />
 	
-  	<table>
+  	<table class="table">
     <h3>Vos informations</h3>
 
     <tr>
@@ -42,7 +41,7 @@
 
 <br/>
 <br/>
-    <table>
+    <table class="table">
         <h5>Liste des élèves sous votre responsabilité :</h5>
 	
 		</br>
@@ -55,7 +54,7 @@
 
 		{% for e in responsable.eleve %}
 		<tr>
-			<td><a class="text-decoration-none" href="">{{ e.nom }}</a></td>
+			<td><a href="{{ path('eleveConsulter', { 'id': e.id }) }}">{{ e.nom }}</a></td>
 			<td>{{ e.prenom }}</td>
 			<td>{{ e.numRue}} {{e.rue}}</td>
 			<td>{{ e.ville}}</td>
@@ -68,6 +67,4 @@
 		</tr>
 	</table>
 
-
-    </body>
-</html>
+{% endblock %}

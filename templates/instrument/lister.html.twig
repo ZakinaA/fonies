@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
+{% extends "index/index.html.twig" %}
 
-    </head>
-    <body>
+        {% block instrument %}
+			<h3> Les instruments </h3>
+			<table  class="table">
+			<tr>
+				<td>Nom</td>
+				<td>Date d'achat</td>
+				<td>Numéro de série</td>
+				<td>Type d'instrument</td>
+				<td>Marque</td>
 
-		LISTE DES INSTRUMENT</br>
-		<table>
-		{% for i in pInstruments %}
-		<tr>
-			<td>{{ i.id }}</a></td>
-            <td>{{ i.intitule}}</td>
-			<td>{{ i.dateAchat|date('d/m/Y') }}</td>
+			{% for i in pInstruments %}
+			<tr>
+				<td>{{ i.intitule}}</td>
+				<td>{{ i.dateAchat|date('d/m/Y') }}</td>
+				<td>{{ i.numeroserie }}</td>
+				<td>{{ i.typeInstrument.libelle }}</td>
+				<td>{{ i.marqueInstrument.libelle }}</td>
+			</tr>
 
-	{% else %}
-		<tr>
-		<td>Aucun etudiant n'a été trouvé.</td>
-		</tr>
-	{% endfor %}
-</table>
-	
-	 
-    </body>
-</html>
+			{% endfor %}
+			</table>
+		{% endblock %}

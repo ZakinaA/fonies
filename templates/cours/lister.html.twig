@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <style type="text/css">
+
+{% block style %}
         table, tbody tr{
+
             border: 1px solid #333;
             vertical-align: top;
         } 
@@ -13,12 +11,10 @@
         table thead tr{
             border-bottom:1px solid; 
         }
-    </style>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-		
-		LISTE DES COURS DISPONIBLES</br>
+{% endblock %}
+{% extends "index/index.html.twig" %}
+{% block cours %}
+<h3>LISTE DES COURS DISPONIBLES</h3>
 		<table>
         <thead>
             <tr>
@@ -204,7 +200,7 @@
             <tbody>
         </table>
 
-        LISTE DES COURS COMPLETS</br>
+        <h3>LISTE DES COURS COMPLETS</h3>
 		<table>
         <thead>
             <tr>
@@ -375,7 +371,5 @@
             </tr>
             <tbody>
         </table>
-	
-        
-	 
-</html>
+{% endblock %}
+
