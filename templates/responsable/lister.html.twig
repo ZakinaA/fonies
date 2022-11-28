@@ -1,0 +1,26 @@
+{% extends "index/index.html.twig" %}
+        {% block cours %}
+		<h3>Listes des Responsables</h3>
+		<table class="table">
+        <thead>
+            <tr>
+                <td>Nom</td>
+                <td>Prenom</td>
+                <td>Ville</td>
+            </tr>
+        </thead>
+		{% for r in pResponsables %}
+		<tr>
+			<td><a href="{{ path('responsableConsulter', { 'id': r.id }) }}">{{ r.nom }}</a></td>
+			<td>{{ r.prenom }}</a></td>
+			<td>{{ r.ville}}</td>
+	{% else %}
+		<tr>
+		<td>Aucun responsable n'a été trouvé.</td>
+		</tr>
+	{% endfor %}
+</td>
+            </tr>
+            <tbody>
+        </table>
+{% endblock %}
