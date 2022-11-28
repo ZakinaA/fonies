@@ -5,24 +5,36 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Cours;
+use App\Entity\Instrument;
+
 
 class IndexController extends AbstractController
 {
-    #[Route('/index', name: 'app_index')]
+    #[Route('', name: 'app_index')]
     public function index(): Response
     {
-        return $this->render('index/index.html.twig', [
+        return $this->render('index.html.twig', [
             'controller_name' => 'IndexController',
         ]);
 
-        
     }
 
-    public function listerCours(ManagerRegistry $doctrine){
+
+    public function accueil(ManagerRegistry $doctrine){
         $repository = $doctrine->getRepository(Cours::class);
         $cours = $repository->findAll();
-        return $this->render('index/index.html.twig', [
-            'pCours' => $cours,]);	
+
+        $repository = $doctrine->getRepository(Instrument::class);
+        $instru = $repository->findAll();
+
+
+
+
+        return $this->render('index.html.twig', [
+            'pCours' => $cours,
+            'pInstru' => $instru,]);	
             
     }
 }

@@ -1,21 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block menu %}{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block style %}
-        table, tbody tr{
-
-            border: 1px solid #333;
-            vertical-align: top;
-        } 
-        td{
-            width : 15%;
-        }
-        table thead tr{
-            border-bottom:1px solid; 
-        }
+        
 {% endblock %}
-{% extends "index.html.twig" %}
-{% block cours %}
+
+{% block contenu %}
+
+
 <h3>LISTE DES COURS DISPONIBLES</h3>
-		<table>
+		<table class="table">
         <thead>
             <tr>
                 <td>Lundi</td>
@@ -201,7 +196,7 @@
         </table>
 
         <h3>LISTE DES COURS COMPLETS</h3>
-		<table>
+		<table class ="table">
         <thead>
             <tr>
                 <td>Lundi</td>
@@ -371,5 +366,28 @@
             </tr>
             <tbody>
         </table>
-{% endblock %}
 
+
+<h3> Les instruments </h3>
+			<table  class="table">
+			<tr>
+				<td>Nom</td>
+				<td>Date d'achat</td>
+				<td>Numéro de série</td>
+				<td>Type d'instrument</td>
+				<td>Marque</td>
+
+			{% for i in pInstru %}
+			<tr>
+				<td>{{ i.intitule}}</td>
+				<td>{{ i.dateAchat|date('d/m/Y') }}</td>
+				<td>{{ i.numeroserie }}</td>
+				<td>{{ i.typeInstrument.libelle }}</td>
+				<td>{{ i.marqueInstrument.libelle }}</td>
+			</tr>
+
+			{% endfor %}
+			</table>
+
+
+{% endblock %}
