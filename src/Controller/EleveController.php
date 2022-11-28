@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Eleve;
 
 class EleveController extends AbstractController
 {
@@ -15,4 +18,23 @@ class EleveController extends AbstractController
             'controller_name' => 'EleveController',
         ]);
     }
+
+
+// Méthode consulterEleve, qui permet de retourner les informations d'un eleve
+
+public function consulterEleve(ManagerRegistry $doctrine, int $id){
+
+    $eleve= $doctrine->getRepository(Eleve::class)->find($id);
+
+    if (!$eleve) {
+        throw $this->createNotFoundException(
+        'Aucun eleve trouvé avec le numéro '.$id
+        );
+    }
+
+    return $this->render('eleve/consulter.html.twig', [
+        'eleve' => $eleve,]);
+
+}
+
 }
