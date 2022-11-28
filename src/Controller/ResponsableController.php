@@ -28,8 +28,6 @@ public function consulterResponsable(ManagerRegistry $doctrine, int $id){
 
     $responsable= $doctrine->getRepository(Responsable::class)->find($id);
 
-
-    $eleves = $doctrine->getRepository(Eleve::class)->findByResponsable($id);
     if (!$responsable) {
         throw $this->createNotFoundException(
         'Aucun responsable trouvé avec le numéro '.$id
@@ -37,9 +35,17 @@ public function consulterResponsable(ManagerRegistry $doctrine, int $id){
     }
 
     return $this->render('responsable/consulter.html.twig', [
-        'responsable' => $responsable,
-        'eleves' => $eleves,]);
+        'responsable' => $responsable,]);
 
 }
 
+public function listerResponsable(ManagerRegistry $doctrine){
+
+    $repository = $doctrine->getRepository(Responsable::class);
+
+$responsables= $repository->findAll();
+return $this->render('responsable/lister.html.twig', [
+'pResponsables' => $responsables,]);	
+
+}
 }

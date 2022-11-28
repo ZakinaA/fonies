@@ -1,17 +1,33 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
-    
-responsableConsulter:
-    path: /responsable/consulter/{id}
-    controller: App\Controller\ResponsableController::consulterResponsable
+
+# accueil
 
 route_accueil:
     path: /accueil
     controller: App\Controller\IndexController::accueil
 
+# Instrument
+
+instrumentConsulter:
+    path: /instrument/consulter/{id}
+    controller: App\Controller\InstrumentController::consulterInstruments
+
+# Responsable
+
+responsableConsulter:
+    path: /responsable/consulter/{id}
+    controller: App\Controller\ResponsableController::consulterResponsable
+
+# Eleve
+
+eleveConsulter:
+    path: /eleve/consulter/{id}
+    controller: App\Controller\EleveController::consulterEleve
+
+# Classe Instrument
+
 classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
     controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
-
-
