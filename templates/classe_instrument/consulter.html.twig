@@ -15,7 +15,7 @@
 				{% for i in t.instruments %}
 				<tr>
 					<td>{{ t.libelle}}</td>
-					<td><a href="{{ path('instrumentConsulter', { 'id': i.id }) }}">{{ i.nom}}</a></td>
+					<td><a href="{{ path('instrumentConsulter', { 'id': i.id }) }}">{{ i.intitule}}</a></td>
 					<td>{{ i.dateAchat|date('d/m/Y') }}</td>
 					<td>{{ i.numeroserie }}</td>
 					<td>{{ i.typeInstrument.libelle }}</td>
