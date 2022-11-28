@@ -5,3 +5,7 @@ controllers:
 coursLister:
     path: /cours/lister
     controller: App\Controller\CoursController::listerCours
+    
+responsableConsulter:
+    path: /responsable/consulter/{id}
+    controller: App\Controller\ResponsableController::consulterResponsable
