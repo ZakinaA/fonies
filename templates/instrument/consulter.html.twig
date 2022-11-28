@@ -17,17 +17,60 @@
     	<td>Couleur de l'instrument : </td><td>{{instrument.couleur}}</td></tr></tr>
     </tr>
 </table>
-
+</br>
+<h4>Liste des accessoires</h4>
+<table class="table">
+{% if accessoire == null %}
+    <td>Il n'y a pas d'accessoire avec cet instrument</td>
+{% else %}
 {% for a in accessoire %}
 		<tr>
 			<td>{{ a.libelle }}</td>
 		</tr>
 	{% endfor %}
-{% for t in instrument.typeInstrument %}
-		<tr>
-			<td>{{ t.classeInstrument.libelle }}</td>
+{% endif %}
+</table>
+</br>
+<h4>Liste des inerventions</h4>
+<table class="table">
+{% if interventionPret == null %}
+    <td>Il n'y a pas eu d'intervention sur cet instrument</td>
+{% else %}
+{% for i in interventionPret %}
+
+    
+
+		<tr><th>Intérvention effectuée</th><th>Date de début d'intervention</th><th>Date de fin d'intervention</th></tr>
+        <tr>
+			<td>{{ i.intervention.descriptif }}</td>
+            <td>{{ i.intervention.dateDebut|date("d-m-20y")}}</td>
+            <td>{{ i.intervention.dateFin|date("d-m-20y")}}</td>
+		</tr>
+        {% endfor %}
+{% endif %}
+	
+</table>
+</br>
+<h4>Liste des Prêts</h4>
+<table class="table">
+{% if contratPret == null %}
+    <td>Cet instrument n'a pas encore été loué</td>
+{% else %}
+{% for c in contratPret %}
+		<tr><th>Eleve</th><th>Date du prêt</th><th>Date de rendu</th><th>Etat avant prêt</th><th>Etat après prêt</th></tr>
+        <tr>
+			<td><a href="{{ path('eleveConsulter', {id : c.eleve.id})}}">{{ c.eleve.nom|upper }} {{c.eleve.prenom}}</a></td>
+            <td>{{ c.dateDebut|date("d-m-20y")}}</td>
+            <td>{{ c.dateFin|date("d-m-20y")}}</td>
+            <td>{{ c.etatDetailleDebut}}</td>
+        {% if c.etatDetailleRetour == "NULL" %}
+            <td>{{ c.etatDetailleRetour}}</td>
+        {% else %}
+            <td>L'instrument n'a pas encore été rendu.</td>
+        {% endif %}
 		</tr>
 		
 	{% endfor %}
-
+    {% endif %}
+</table>
 {% endblock %}
