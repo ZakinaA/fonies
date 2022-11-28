@@ -37,7 +37,7 @@ class Responsable
     private ?string $email = null;
 
     #[ORM\Column]
-    private ?int $telephone = null;
+    private ?string $telephone = null;
 
     #[ORM\ManyToOne(inversedBy: 'responsables')]
     private ?Tranche $tranche = null;
@@ -143,12 +143,12 @@ class Responsable
         return $this;
     }
 
-    public function getTelephone(): ?int
+    public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
-    public function setTelephone(int $telephone): self
+    public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
 
