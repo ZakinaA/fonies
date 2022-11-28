@@ -25,6 +25,9 @@ coursLister:
 responsableConsulter:
     path: /responsable/consulter/{id}
     controller: App\Controller\ResponsableController::consulterResponsable
+responsableLister:
+    path: /responsable/lister
+    controller: App\Controller\ResponsableController::listerResponsable
 
 # Eleve
 

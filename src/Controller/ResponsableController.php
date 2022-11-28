@@ -39,4 +39,13 @@ public function consulterResponsable(ManagerRegistry $doctrine, int $id){
 
 }
 
+public function listerResponsable(ManagerRegistry $doctrine){
+
+    $repository = $doctrine->getRepository(Responsable::class);
+
+$responsables= $repository->findAll();
+return $this->render('responsable/lister.html.twig', [
+'pResponsables' => $responsables,]);	
+
+}
 }
