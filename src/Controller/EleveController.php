@@ -28,7 +28,6 @@ class EleveController extends AbstractController
 public function consulterEleve(ManagerRegistry $doctrine, int $id){
 
     $eleve= $doctrine->getRepository(Eleve::class)->find($id);
-    $inscription = $doctrine->getRepository(Inscription::class)->find($id);
 
     if (!$eleve) {
         throw $this->createNotFoundException(
@@ -37,8 +36,7 @@ public function consulterEleve(ManagerRegistry $doctrine, int $id){
     }
 
     return $this->render('eleve/consulter.html.twig', [
-        'eleve' => $eleve,
-        'inscription' => $inscription,]);
+        'eleve' => $eleve,]);
 
 }
 

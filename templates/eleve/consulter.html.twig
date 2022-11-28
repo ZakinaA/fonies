@@ -48,21 +48,33 @@
 	
 		</br>
 		<tr>
-		<td>Date</td>
-		<td>Montant</td>
+    <th>Cours</th>
+		<th>Date de paiement</th>
+		<th>Montant</th>
 		</tr>
 
-		{% for e in inscription.paiement %}
-		<tr>
-			<td>{{ e.datePaiement|date("d/m/Y") }}</td>
-			<td>{{ e.montant}}</td>
+		{% for i in eleve.inscription %}
+    <tr>
+    <td><b>{{i.cours.typeInstrument.libelle}}</b> du {{i.cours.jour.libelle}} à {{i.cours.heureDebut|date("H:i")}}</td>
+    
+    {% for p in i.paiement %}
+    
+    <tr>
+      <td>  </td>
+			<td>{{ p.datePaiement|date("d/m/Y") }}</td>
+      <td>{{ p.montant}}</td>
 		</tr>
-	{% else %}
-		<tr>
-		<td>Aucun etudiant n'a été trouvé.</td>
+
+  {% else %}
 		
-	{% endfor %}
+    <tr>
+      <td>  </td>
+      <td>Aucun paiement pour ce cours</td>
 		</tr>
+
+	{% endfor %}
+  </tr>
+  {% endfor %}
 
   </table>
 
