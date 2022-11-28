@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <style type="text/css">
+        table, tbody tr{
+            border: 1px solid #333;
+            vertical-align: top;
+        } 
+        td{
+            width : 15%;
+        }
+        table thead tr{
+            border-bottom:1px solid; 
+        }
+    </style>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+		
+		LISTE DES COURS DISPONIBLES</br>
+		<table>
+        <thead>
+            <tr>
+                <td>Lundi</td>
+                <td>Mardi</td>
+                <td>Mercredi</td>
+                <td>Jeudi</td>
+                <td>Vendredi</td>
+                <td>Samedi</td>
+                <td>Dimanche</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Lundi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                {{ c.nbPlaces - c.inscriptions.count() }}  place(s) disponible(s)</br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                1 place disponible</br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Mardi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                1 place disponible</br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Mercredi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                1 place disponible</br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Jeudi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                1 place disponible</br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Vendredi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                1 place disponible</br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Samedi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                1 place disponible</br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Dimanche')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                1 place disponible</br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tbody>
+        </table>
+
+        LISTE DES COURS COMPLETS</br>
+		<table>
+        <thead>
+            <tr>
+                <td>Lundi</td>
+                <td>Mardi</td>
+                <td>Mercredi</td>
+                <td>Jeudi</td>
+                <td>Vendredi</td>
+                <td>Samedi</td>
+                <td>Dimanche</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Lundi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Mardi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Mercredi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Jeudi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Vendredi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Samedi')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+                        {% if (c.jour.libelle == 'Dimanche')%}
+                            {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                            {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
+                                Cours de {{ c.typeInstrument.libelle }}</br>
+                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                Cours {{ c.typeCours.libelle }} </br>
+                                <hr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tbody>
+        </table>
+	
+        
+	 
+</html>
