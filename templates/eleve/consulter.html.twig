@@ -40,4 +40,30 @@
     </table>
 
 
+<br/>
+<br/>
+  <table class="table">
+
+  <h5>Liste de vos paiements :</h5>
+	
+		</br>
+		<tr>
+		<td>Date</td>
+		<td>Montant</td>
+		</tr>
+
+		{% for e in inscription.paiement %}
+		<tr>
+			<td>{{ e.datePaiement|date("d/m/Y") }}</td>
+			<td>{{ e.montant}}</td>
+		</tr>
+	{% else %}
+		<tr>
+		<td>Aucun etudiant n'a été trouvé.</td>
+		
+	{% endfor %}
+		</tr>
+
+  </table>
+
 {% endblock %}

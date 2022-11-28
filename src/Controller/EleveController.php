@@ -9,6 +9,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Eleve;
 use App\Entity\Responsable;
+use App\Entity\Inscription;
+
 
 class EleveController extends AbstractController
 {
@@ -26,6 +28,7 @@ class EleveController extends AbstractController
 public function consulterEleve(ManagerRegistry $doctrine, int $id){
 
     $eleve= $doctrine->getRepository(Eleve::class)->find($id);
+    $inscription = $doctrine->getRepository(Inscription::class)->find($id);
 
     if (!$eleve) {
         throw $this->createNotFoundException(
@@ -34,7 +37,8 @@ public function consulterEleve(ManagerRegistry $doctrine, int $id){
     }
 
     return $this->render('eleve/consulter.html.twig', [
-        'eleve' => $eleve,]);
+        'eleve' => $eleve,
+        'inscription' => $inscription,]);
 
 }
 
