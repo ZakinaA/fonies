@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+
+
+
+{% block contenu %}
+    <h3>Page de l'eleve :</h3>
+    <br />
+	
+  	<table class="table">
+    <h3>Vos informations</h3>
+
+    <tr>
+    	<td>Nom : </td><td>{{eleve.nom}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Prénom : </td><td>{{eleve.prenom}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Rue : </td><td>{{eleve.numRue}} {{eleve.rue}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Ville : </td><td>{{eleve.codePostale}} {{eleve.ville}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Adresse mail : </td><td>{{eleve.email}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Numéro de téléphone : </td><td>{{eleve.telephone}}</td></tr></tr>
+    <tr>
+    
+    <tr>
+    	<td>Responsable : </td><td>{{eleve.responsable.nom}}</td></tr></tr>
+    <tr>
+    </table>
+
+
+{% endblock %}

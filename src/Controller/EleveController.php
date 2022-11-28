@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Eleve;
+use App\Entity\Responsable;
 
 class EleveController extends AbstractController
 {
