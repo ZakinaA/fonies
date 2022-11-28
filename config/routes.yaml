@@ -10,9 +10,9 @@ route_accueil:
 
 # Instrument
 
-instrumentLister:
-    path: /instrument/lister
-    controller: App\Controller\InstrumentController::listerInstruments
+instrumentConsulter:
+    path: /instrument/consulter/{id}
+    controller: App\Controller\InstrumentController::consulterInstruments
 
 # Cours
 
