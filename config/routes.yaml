@@ -6,6 +6,10 @@ instrumentLister:
     path: /instrument/lister
     controller: App\Controller\InstrumentController::listerInstruments
 
+instrumentConsulter:
+    path: /instrument/consulter/{id}
+    controller: App\Controller\InstrumentController::consulterInstruments
+
 coursLister:
     path: /cours/lister
     controller: App\Controller\CoursController::listerCours

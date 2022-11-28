@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block title %}Fiche {{instrument.intitule}}{% endblock %}
+{% block contenu %}
+<h3>Fiche {{instrument.intitule}}</h3>
+</br>
+<table class="table">
+    <tr>
+    	<td>Nom de l'instrument : </td><td>{{instrument.typeInstrument.libelle}}</td></tr></tr>
+    </tr>
+    <tr>
+    	<td>Classe de l'instrument : </td><td>{{instrument.typeInstrument.classeInstrument.libelle}}</td></tr></tr>
+    </tr>
+    <tr>
+    	<td>Marque de l'instrument : </td><td>{{instrument.marqueInstrument.libelle}}</td></tr></tr>
+    </tr>
+    <tr>
+    	<td>Couleur de l'instrument : </td><td>{{instrument.couleur}}</td></tr></tr>
+    </tr>
+</table>
+
+{% for a in accessoire %}
+		<tr>
+			<td>{{ a.libelle }}</td>
+		</tr>
+	{% endfor %}
+{% for t in instrument.typeInstrument %}
+		<tr>
+			<td>{{ t.classeInstrument.libelle }}</td>
+		</tr>
+		
+	{% endfor %}
+
+{% endblock %}
