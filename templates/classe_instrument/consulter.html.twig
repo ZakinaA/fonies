@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+        {% block contenu %}
+			<h3> Les instruments de classe {{classeInstrument.libelle}} </h3>
+			<table  class="table">
+			<tr>
+				<th>Type</th>
+				<th>Nom</th>
+				<th>Date d'achat</th>
+				<th>Numéro de série</th>
+				<th>Type d'instrument</th>
+				<th>Marque</th>
+
+			{% for t in classeInstrument.typeInstruments %}
+				{% for i in t.instruments %}
+				<tr>
+					<td>{{ t.libelle}}</td>
+					<td><a href="{{ path('instrumentConsulter', { 'id': i.id }) }}">{{ i.nom}}</a></td>
+					<td>{{ i.dateAchat|date('d/m/Y') }}</td>
+					<td>{{ i.numeroserie }}</td>
+					<td>{{ i.typeInstrument.libelle }}</td>
+					<td>{{ i.marqueInstrument.libelle }}</td>
+				</tr>
+				{% endfor %}
+			{% endfor %}
+			</table>
+		{% endblock %}
