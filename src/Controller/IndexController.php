@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Cours;
-use App\Entity\Instrument;
+use App\Entity\ClasseInstrument;
 
 
 class IndexController extends AbstractController
@@ -26,7 +26,7 @@ class IndexController extends AbstractController
         $repository = $doctrine->getRepository(Cours::class);
         $cours = $repository->findAll();
 
-        $repository = $doctrine->getRepository(Instrument::class);
+        $repository = $doctrine->getRepository(ClasseInstrument::class);
         $instru = $repository->findAll();
 
 
@@ -34,7 +34,7 @@ class IndexController extends AbstractController
 
         return $this->render('index.html.twig', [
             'pCours' => $cours,
-            'pInstru' => $instru,]);	
+            'pClasseInstru' => $instru,]);	
             
     }
 }

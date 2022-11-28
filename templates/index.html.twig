@@ -371,19 +371,12 @@
 <h3> Les instruments </h3>
 			<table  class="table">
 			<tr>
-				<td>Nom</td>
-				<td>Date d'achat</td>
-				<td>Numéro de série</td>
-				<td>Type d'instrument</td>
-				<td>Marque</td>
+				<th>Nom</th>
+                </tr>
 
-			{% for i in pInstru %}
+			{% for i in pClasseInstru %}
 			<tr>
-				<td>{{ i.intitule}}</td>
-				<td>{{ i.dateAchat|date('d/m/Y') }}</td>
-				<td>{{ i.numeroserie }}</td>
-				<td>{{ i.typeInstrument.libelle }}</td>
-				<td>{{ i.marqueInstrument.libelle }}</td>
+				<td><a href="{{ path('classeInstrumentConsulter', { 'id': i.id }) }}">{{ i.libelle}}</a></td>
 			</tr>
 
 			{% endfor %}
