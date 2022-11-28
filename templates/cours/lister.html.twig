@@ -1,4 +1,4 @@
-{% extends "index/index.html.twig" %}
+
 {% block style %}
         table, tbody tr{
 
@@ -12,7 +12,8 @@
             border-bottom:1px solid; 
         }
 {% endblock %}
-        {% block cours %}
+{% extends "index/index.html.twig" %}
+{% block cours %}
 <h3>LISTE DES COURS DISPONIBLES</h3>
 		<table>
         <thead>

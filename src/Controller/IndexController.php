@@ -14,5 +14,15 @@ class IndexController extends AbstractController
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
         ]);
+
+        
+    }
+
+    public function listerCours(ManagerRegistry $doctrine){
+        $repository = $doctrine->getRepository(Cours::class);
+        $cours = $repository->findAll();
+        return $this->render('index/index.html.twig', [
+            'pCours' => $cours,]);	
+            
     }
 }
