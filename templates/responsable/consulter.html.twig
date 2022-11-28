@@ -54,7 +54,7 @@
 
 		{% for e in responsable.eleve %}
 		<tr>
-			<td><a class="text-decoration-none" href="">{{ e.nom }}</a></td>
+			<td><a href="{{ path('eleveConsulter', { 'id': e.id }) }}">{{ e.nom }}</a></td>
 			<td>{{ e.prenom }}</td>
 			<td>{{ e.numRue}} {{e.rue}}</td>
 			<td>{{ e.ville}}</td>
