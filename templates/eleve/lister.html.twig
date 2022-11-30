@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
         {% block contenu %}
-		<h3>Listes des Responsables</h3>
+		<h3>Listes des Eleves</h3>
 		<table class="table">
         <thead>
             <tr>
@@ -9,14 +9,14 @@
                 <td>Ville</td>
             </tr>
         </thead>
-		{% for r in pResponsables %}
+		{% for e in pEleves %}
 		<tr>
-			<td><a href="{{ path('responsableConsulter', { 'id': r.id }) }}">{{ r.nom }}</a></td>
-			<td>{{ r.prenom }}</a></td>
-			<td>{{ r.ville}}</td>
-	{% else %}
+			<td><a href="{{ path('eleveConsulter', { 'id': e.id }) }}">{{ e.nom }}</a></td>
+			<td>{{ e.prenom }}</td>
+            <td>{{ e.ville }}</td>
+{% else %}
 		<tr>
-		<td>Aucun responsable n'a été trouvé.</td>
+		<td>Aucun eleve n'a été trouvé.</td>
 		</tr>
 	{% endfor %}
 </td>

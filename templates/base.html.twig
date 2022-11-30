@@ -84,9 +84,23 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="accueil">
+            <a class="nav-link" href="{{path('route_accueil')}}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Accueil</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('responsableLister')}}">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Les responsables</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('eleveLister')}}">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Les eleves</span>
             </a>
           </li>
           

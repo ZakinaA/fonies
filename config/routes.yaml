@@ -20,20 +20,29 @@ responsableConsulter:
     path: /responsable/consulter/{id}
     controller: App\Controller\ResponsableController::consulterResponsable
 
+responsableLister:
+    path: /responsable/lister
+    controller: App\Controller\ResponsableController::listerResponsable
+
+
+
 # Eleve
 
 eleveConsulter:
     path: /eleve/consulter/{id}
     controller: App\Controller\EleveController::consulterEleve
 
+eleveLister:
+    path: /eleve/lister
+    controller: App\Controller\EleveController::listerEleve
+
 # Classe Instrument
 
 classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
-    controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
+    controller: App\Controller\ClasseInstrumentController::consulterClasseInstrumen
 
-
-# Cours
+# Cours 
 
 coursConsulter:
     path: /cours/consulter/{id}
