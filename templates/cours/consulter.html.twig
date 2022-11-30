@@ -1,0 +1,66 @@
+{% extends "base.html.twig" %}
+
+
+
+
+{% block contenu %}
+
+    <h3>Informations du cours de {{cours.typeInstrument.libelle}} du {{cours.jour.libelle}}</h3>
+    <br />
+	
+  	<table class="table">
+
+    <tr>
+    	<td>Professeur: </td><td><a href="">{{cours.professeur.nom}} {{cours.professeur.prenom}}</a></td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Horaires : </td><td> de {{cours.heureDebut|date("H:i")}} à {{cours.heureFin|date("H:i")}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Nombre de places: </td><td>{{cours.nbPlaces}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Âge minimum requis : </td><td> {{cours.agemini}} ans</td></tr></tr>
+    <tr>
+
+   
+   
+    </table>
+
+</br>
+</br>
+</br>
+
+    <table class="table">
+
+     <h3>Liste des élèves inscrits :</h3>
+	
+</br>
+		<tr>
+        <th>Nom</th>
+		<th>Prenom</th>
+		</tr>
+
+		{% for i in cours.inscriptions %}
+    
+    
+    <tr>
+		<td>{{ i.eleve.nom }}</td>
+        <td>{{ i.eleve.prenom}}</td>
+	</tr>
+
+  {% else %}
+		
+    <tr>
+      <td>  </td>
+      <td>Aucun élève pour ce cours</td>
+		</tr>
+
+	{% endfor %}
+
+  </table>
+
+{% endblock %}
