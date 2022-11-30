@@ -1,0 +1,26 @@
+{% extends "index/index.html.twig" %}
+        {% block cours %}
+		<h3>Listes des Eleves</h3>
+		<table class="table">
+        <thead>
+            <tr>
+                <td>Nom</td>
+                <td>Prenom</td>
+                <td>Ville</td>
+            </tr>
+        </thead>
+		{% for e in pEleves %}
+		<tr>
+			<td><a href="{{ path('responsableConsulter', { 'id': e.id }) }}">{{ e.nom }}</a></td>
+			<td>{{ e.prenom }}</td>
+            <td>{{ e.ville }}</td>
+{% else %}
+		<tr>
+		<td>Aucun eleve n'a été trouvé.</td>
+		</tr>
+	{% endfor %}
+</td>
+            </tr>
+            <tbody>
+        </table>
+{% endblock %}

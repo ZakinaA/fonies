@@ -34,3 +34,6 @@ responsableLister:
 eleveConsulter:
     path: /eleve/consulter/{id}
     controller: App\Controller\EleveController::consulterEleve
+eleveLister:
+    path: /eleve/lister
+    controller: App\Controller\EleveController::listerEleve

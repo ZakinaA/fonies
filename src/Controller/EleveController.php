@@ -38,4 +38,13 @@ public function consulterEleve(ManagerRegistry $doctrine, int $id){
 
 }
 
+public function listerEleve(ManagerRegistry $doctrine){
+
+    $repository = $doctrine->getRepository(Eleve::class);
+
+$eleves= $repository->findAll();
+return $this->render('eleve/lister.html.twig', [
+'pEleves' => $eleves,]);	
+
+}
 }
