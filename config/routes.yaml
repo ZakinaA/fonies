@@ -31,3 +31,10 @@ eleveConsulter:
 classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
     controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
+
+
+# Cours
+
+coursConsulter:
+    path: /cours/consulter/{id}
+    controller: App\Controller\CoursController::consulterCours
