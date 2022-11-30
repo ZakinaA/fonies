@@ -1,8 +1,5 @@
 {% extends "base.html.twig" %}
 
-
-
-
 {% block contenu %}
     <h3>Page de l'eleve :</h3>
     <br />
@@ -42,39 +39,179 @@
 
 <br/>
 <br/>
-  <table class="table">
 
-  <h5>Liste de vos paiements :</h5>
-	
-		</br>
-		<tr>
-    <th>Cours</th>
-		<th>Date de paiement</th>
-		<th>Montant</th>
-		</tr>
 
-		{% for i in eleve.inscription %}
-    <tr>
-    <td><b>{{i.cours.typeInstrument.libelle}}</b> du {{i.cours.jour.libelle}} à {{i.cours.heureDebut|date("H:i")}}</td>
-    
-    {% for p in i.paiement %}
-    
-    <tr>
-      <td>  </td>
-			<td>{{ p.datePaiement|date("d/m/Y") }}</td>
-      <td>{{ p.montant}}</td>
-		</tr>
+  <h3>LES COURS ET LES PAIEMENTS</h3>
+		<table class="table">
+        <thead>
+            <tr>
+                <td>Lundi</td>
+                <td>Mardi</td>
+                <td>Mercredi</td>
+                <td>Jeudi</td>
+                <td>Vendredi</td>
+                <td>Samedi</td>
+                <td>Dimanche</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {% for i in eleve.inscription %}
+                        
+                        {% if (i.cours.jour.libelle == 'Lundi')%}
+                                Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                                Cours {{ i.cours.typeCours.libelle }} </br>
+                                <b>Les paiements :</br></b>
+                                <p STYLE="padding-left:20px;">
+                                  {% for p in i.paiement %}
+                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                    </br>
+                                    {% else %}
+                                    Aucun paiement pour ce cours
+                                  {% endfor %}
+                                </p>
+                                <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
 
-  {% else %}
-		
-    <tr>
-      <td>  </td>
-      <td>Aucun paiement pour ce cours</td>
-		</tr>
+                <td>
+                    {% for i in eleve.inscription %}
+                        
+                        {% if (i.cours.jour.libelle == 'Mardi')%}
+                            Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                                Cours {{ i.cours.typeCours.libelle }} </br>
+                                <b>Les paiements :</br></b>
+                                <p STYLE="padding-left:20px;">
+                                  {% for p in i.paiement %}
+                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                    </br>
+                                    {% else %}
+                                    Aucun paiement pour ce cours
+                                  {% endfor %}
+                                </p>
+                                <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
 
-	{% endfor %}
-  </tr>
-  {% endfor %}
+                <td>
+                    {% for i in eleve.inscription %}
+                        
+                        {% if (i.cours.jour.libelle == 'Mercredi')%}
+                            Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                                Cours {{ i.cours.typeCours.libelle }} </br>
+                                <b>Les paiements :</br></b>
+                                <p STYLE="padding-left:20px;">
+                                  {% for p in i.paiement %}
+                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                    </br>
+                                    {% else %}
+                                    Aucun paiement pour ce cours
+                                  {% endfor %}
+                                </p>
+                                <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for i in eleve.inscription %}
+                        
+                        {% if (i.cours.jour.libelle == 'Jeudi')%}
+                            Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                                Cours {{ i.cours.typeCours.libelle }} </br>
+                                <b>Les paiements :</br></b>
+                                <p STYLE="padding-left:20px;">
+                                  {% for p in i.paiement %}
+                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                    </br>
+                                    {% else %}
+                                    Aucun paiement pour ce cours
+                                  {% endfor %}
+                                </p>
+                                <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for i in eleve.inscription %}
+                        
+                        {% if (i.cours.jour.libelle == 'Vendredi')%}
+                            Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                                Cours {{ i.cours.typeCours.libelle }} </br>
+                                <b>Les paiements :</br></b>
+                                <p STYLE="padding-left:20px;">
+                                  {% for p in i.paiement %}
+                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                    </br>
+                                    {% else %}
+                                    Aucun paiement pour ce cours
+                                  {% endfor %}
+                                </p>
+                                <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for i in eleve.inscription %}
+                        
+                        {% if (i.cours.jour.libelle == 'Samedi')%}
+                            Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                                Cours {{ i.cours.typeCours.libelle }} </br>
+                                <b>Les paiements :</br></b>
+                                <p STYLE="padding-left:20px;">
+                                  {% for p in i.paiement %}
+                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                    </br>
+                                    {% else %}
+                                    Aucun paiement pour ce cours
+                                  {% endfor %}
+                                </p>
+                                <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for i in eleve.inscription %}
+                        
+                        {% if (i.cours.jour.libelle == 'Dimanche')%}
+                            Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                                Cours {{ i.cours.typeCours.libelle }} </br>
+                                <b>Les paiements :</br></b>
+                                <p STYLE="padding-left:20px;">
+                                  {% for p in i.paiement %}
+                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                    </br>
+                                    {% else %}
+                                    Aucun paiement pour ce cours
+                                  {% endfor %}
+                                </p>
+                                <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tbody>
+        </table>
 
   </table>
 
