@@ -9,6 +9,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Eleve;
 use App\Entity\Responsable;
+use App\Entity\Inscription;
+
 
 class EleveController extends AbstractController
 {

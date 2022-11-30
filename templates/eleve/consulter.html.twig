@@ -40,4 +40,42 @@
     </table>
 
 
+<br/>
+<br/>
+  <table class="table">
+
+  <h5>Liste de vos paiements :</h5>
+	
+		</br>
+		<tr>
+    <th>Cours</th>
+		<th>Date de paiement</th>
+		<th>Montant</th>
+		</tr>
+
+		{% for i in eleve.inscription %}
+    <tr>
+    <td><b>{{i.cours.typeInstrument.libelle}}</b> du {{i.cours.jour.libelle}} à {{i.cours.heureDebut|date("H:i")}}</td>
+    
+    {% for p in i.paiement %}
+    
+    <tr>
+      <td>  </td>
+			<td>{{ p.datePaiement|date("d/m/Y") }}</td>
+      <td>{{ p.montant}}</td>
+		</tr>
+
+  {% else %}
+		
+    <tr>
+      <td>  </td>
+      <td>Aucun paiement pour ce cours</td>
+		</tr>
+
+	{% endfor %}
+  </tr>
+  {% endfor %}
+
+  </table>
+
 {% endblock %}

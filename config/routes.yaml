@@ -6,34 +6,33 @@ controllers:
 
 route_accueil:
     path: /accueil
-    controller: App\Controller\IndexController::index
+    controller: App\Controller\IndexController::accueil
 
 # Instrument
 
-instrumentLister:
-    path: /instrument/lister
-    controller: App\Controller\InstrumentController::listerInstruments
+instrumentConsulter:
+    path: /instrument/consulter/{id}
+    controller: App\Controller\InstrumentController::consulterInstruments
 
-# Cours
-
-coursLister:
-    path: /cours/lister
-    controller: App\Controller\CoursController::listerCours
-    
 # Responsable
 
 responsableConsulter:
     path: /responsable/consulter/{id}
     controller: App\Controller\ResponsableController::consulterResponsable
-responsableLister:
-    path: /responsable/lister
-    controller: App\Controller\ResponsableController::listerResponsable
 
 # Eleve
 
 eleveConsulter:
     path: /eleve/consulter/{id}
     controller: App\Controller\EleveController::consulterEleve
+
 eleveLister:
     path: /eleve/lister
     controller: App\Controller\EleveController::listerEleve
+
+# Classe Instrument
+
+classeInstrumentConsulter:
+    path: /classeInstrument/consulter/{id}
+    controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
+
