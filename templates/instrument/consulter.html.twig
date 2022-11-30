@@ -1,76 +1,60 @@
 {% extends "base.html.twig" %}
 {% block title %}Fiche {{instrument.intitule}}{% endblock %}
 {% block contenu %}
-<h3>Fiche {{instrument.intitule}}</h3>
+<h3>Fiche {{instrument.intitule}} ({{instrument.typeInstrument.libelle}})</h3>
 </br>
 <table class="table">
     <tr>
-    	<td>Nom de l'instrument : </td><td>{{instrument.typeInstrument.libelle}}</td></tr></tr>
+    	<td>Date d'achat : </td><td>{{instrument.dateAchat|date('d/m/20y')}}</td>
     </tr>
     <tr>
-    	<td>Classe de l'instrument : </td><td>{{instrument.typeInstrument.classeInstrument.libelle}}</td></tr></tr>
+    	<td>Prix d'achat : </td><td>{{instrument.prixAchat}} €</td>
     </tr>
     <tr>
-    	<td>Marque de l'instrument : </td><td>{{instrument.marqueInstrument.libelle}}</td></tr></tr>
+    	<td>Marque : </td><td>{{instrument.marqueInstrument.libelle}}</td>
     </tr>
     <tr>
-    	<td>Couleur de l'instrument : </td><td>{{instrument.couleur}}</td></tr></tr>
+        <td>Modele : </td><td>{{instrument.modeleInstrument.libelle}}</td>
     </tr>
-</table>
-</br>
-<h4>Liste des accessoires</h4>
-<table class="table">
-{% if accessoire == null %}
-    <td>Il n'y a pas d'accessoire avec cet instrument</td>
-{% else %}
-{% for a in accessoire %}
-		<tr>
-			<td>{{ a.libelle }}</td>
-		</tr>
-	{% endfor %}
-{% endif %}
+    <tr>
+    	<td>Numéro de série : </td><td>{{instrument.numeroSerie}}</td>
+    </tr>
+    <tr>
+    	<td>Couleur dominante : </td><td>{{instrument.couleur}}</td>
+    </tr>
+    <tr>
+    	<td>Utilisation : </td>{% if instrument.Utilisation == null %}
+    <td>Cet instrument n'a pas encore été prêté</td>{% else %}<td>{{instrument.Utilisation}} : <a href="">Voir le pret</a></td>{% endif %}
+    </tr>
+
+
+    <tr>
+    	<td><strong>Classe de l'instrument :</strong> </td><td><a href="{{ path('classeInstrumentConsulter', { 'id': instrument.typeInstrument.classeInstrument.id }) }}">{{instrument.typeInstrument.classeInstrument.libelle}}</a></td>
+    </tr>
 </table>
 </br>
 <h4>Liste des interventions</h4>
 <table class="table">
-{% if interventionPret == null %}
-    <td>Il n'y a pas eu d'intervention sur cet instrument</td>
-{% else %}
-{% for i in interventionPret %}
 
-    
-
-		<tr><th>Intérvention effectuée</th><th>Date de début d'intervention</th><th>Date de fin d'intervention</th></tr>
+{% for c in instrument.contratPret %}
+{% for i in c.interPrets %}
+<tr><th>Date de début</th><th>Date de fin</th><th>Professionel</th><th>Travaux effectués</th><th>Prix</th></tr>
         <tr>
-			<td>{{ i.intervention.descriptif }}</td>
             <td>{{ i.intervention.dateDebut|date("d-m-20y")}}</td>
             <td>{{ i.intervention.dateFin|date("d-m-20y")}}</td>
+            <td>{{ i.intervention.professionel.nom}} 
+            </br>{{i.intervention.professionel.numRue}} {{i.intervention.professionel.rue}} 
+            </br>{{i.intervention.professionel.codePostal}} {{i.intervention.professionel.ville}}</td>
+            <td>{{i.intervention.descriptif}}</td>
+            <td>{{i.intervention.prix}}€</td>
+
 		</tr>
-        {% endfor %}
-{% endif %}
-	
-</table>
-</br>
-<h4>Liste des Prêts</h4>
-<table class="table">
-{% if contratPret == null %}
-    <td>Cet instrument n'a pas encore été loué</td>
-{% else %}
-{% for c in contratPret %}
-		<tr><th>Eleve</th><th>Date du prêt</th><th>Date de rendu</th><th>Etat avant prêt</th><th>Etat après prêt</th></tr>
-        <tr>
-			<td><a href="{{ path('eleveConsulter', {id : c.eleve.id})}}">{{ c.eleve.nom|upper }} {{c.eleve.prenom}}</a></td>
-            <td>{{ c.dateDebut|date("d-m-20y")}}</td>
-            <td>{{ c.dateFin|date("d-m-20y")}}</td>
-            <td>{{ c.etatDetailleDebut}}</td>
-        {% if c.etatDetailleRetour == "NULL" %}
-            <td>{{ c.etatDetailleRetour}}</td>
+
         {% else %}
-            <td>L'instrument n'a pas encore été rendu.</td>
-        {% endif %}
-		</tr>
-		
-	{% endfor %}
-    {% endif %}
+    <p>il n'y a pas eu d'interventions</p>
+        {% endfor %}
+        {% endfor %}
+
+	
 </table>
 {% endblock %}
