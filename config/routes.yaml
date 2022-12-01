@@ -40,7 +40,7 @@ eleveLister:
 
 classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
-    controller: App\Controller\ClasseInstrumentController::consulterClasseInstrumen
+    controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
 
 # Cours 
 
