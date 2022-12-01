@@ -28,7 +28,7 @@ class Instrument
     #[ORM\Column(length: 50)]
     private ?string $couleur = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $utilisation = null;
 
     #[ORM\Column(nullable: true)]

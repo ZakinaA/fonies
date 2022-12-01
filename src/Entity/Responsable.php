@@ -33,7 +33,7 @@ class Responsable
     #[ORM\Column]
     private ?int $code_postal = null;
 
-    #[ORM\Column(length: 150)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $email = null;
 
     #[ORM\Column]
@@ -41,9 +41,6 @@ class Responsable
 
     #[ORM\ManyToOne(inversedBy: 'responsables')]
     private ?Tranche $tranche = null;
-
-    #[ORM\OneToMany(mappedBy: 'responsable', targetEntity: Compte::class)]
-    private Collection $compte;
 
     #[ORM\OneToMany(mappedBy: 'responsable', targetEntity: Eleve::class)]
     private Collection $eleve;
@@ -163,36 +160,6 @@ class Responsable
     public function setTranche(?Tranche $tranche): self
     {
         $this->tranche = $tranche;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Compte>
-     */
-    public function getCompte(): Collection
-    {
-        return $this->compte;
-    }
-
-    public function addCompte(Compte $compte): self
-    {
-        if (!$this->compte->contains($compte)) {
-            $this->compte->add($compte);
-            $compte->setResponsable($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCompte(Compte $compte): self
-    {
-        if ($this->compte->removeElement($compte)) {
-            // set the owning side to null (unless already changed)
-            if ($compte->getResponsable() === $this) {
-                $compte->setResponsable(null);
-            }
-        }
 
         return $this;
     }
