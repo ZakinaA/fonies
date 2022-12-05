@@ -61,6 +61,8 @@
                 <td>
                     {% for i in eleve.inscription %}
                         
+                      <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
+
                         {% if (i.cours.jour.libelle == 'Lundi')%}
                                 Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
                                 Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
@@ -78,10 +80,13 @@
                                 <hr>
                         {% endif %}
                     {% endfor %}
+                  </a>
                 </td>
 
                 <td>
                     {% for i in eleve.inscription %}
+
+                    <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Mardi')%}
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
@@ -100,10 +105,13 @@
                                 <hr>
                         {% endif %}
                     {% endfor %}
+                  </a>
                 </td>
 
                 <td>
                     {% for i in eleve.inscription %}
+
+                    <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Mercredi')%}
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
@@ -122,10 +130,13 @@
                                 <hr>
                         {% endif %}
                     {% endfor %}
+                  </a>
                 </td>
 
                 <td>
                     {% for i in eleve.inscription %}
+
+                    <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Jeudi')%}
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
@@ -144,10 +155,13 @@
                                 <hr>
                         {% endif %}
                     {% endfor %}
+                  </a>
                 </td>
 
                 <td>
                     {% for i in eleve.inscription %}
+
+                    <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Vendredi')%}
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
@@ -166,10 +180,13 @@
                                 <hr>
                         {% endif %}
                     {% endfor %}
+                  </a>
                 </td>
 
                 <td>
                     {% for i in eleve.inscription %}
+                    
+                    <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Samedi')%}
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
@@ -188,10 +205,13 @@
                                 <hr>
                         {% endif %}
                     {% endfor %}
+                  </a>
                 </td>
 
                 <td>
                     {% for i in eleve.inscription %}
+
+                    <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Dimanche')%}
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
@@ -210,6 +230,7 @@
                                 <hr>
                         {% endif %}
                     {% endfor %}
+                  </a>
                 </td>
             </tr>
             <tbody>
