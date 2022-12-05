@@ -38,7 +38,13 @@ eleveLister:
 
 classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
-    controller: App\Controller\ClasseInstrumentController::consulterClasseInstrumen
+    controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
+
+# Classe Pret
+
+pretConsulter:
+    path: /pret/consulter/{id}
+    controller: App\Controller\PretController::consulterPret
 
 # Professeur
 
