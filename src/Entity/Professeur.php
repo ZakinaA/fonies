@@ -30,14 +30,11 @@ class Professeur
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $ville = null;
 
-    #[ORM\Column(length: 150)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $email = null;
 
     #[ORM\Column(length: 10)]
     private ?string $telephone = null;
-
-    #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Compte::class)]
-    private Collection $comptes;
 
     #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Cours::class)]
     private Collection $cours;
@@ -137,36 +134,6 @@ class Professeur
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Compte>
-     */
-    public function getComptes(): Collection
-    {
-        return $this->comptes;
-    }
-
-    public function addCompte(Compte $compte): self
-    {
-        if (!$this->comptes->contains($compte)) {
-            $this->comptes->add($compte);
-            $compte->setProfesseur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCompte(Compte $compte): self
-    {
-        if ($this->comptes->removeElement($compte)) {
-            // set the owning side to null (unless already changed)
-            if ($compte->getProfesseur() === $this) {
-                $compte->setProfesseur(null);
-            }
-        }
 
         return $this;
     }

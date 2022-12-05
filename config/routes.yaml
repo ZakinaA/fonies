@@ -40,6 +40,7 @@ classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
     controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
 
+
 # Classe Pret
 
 pretConsulter:
@@ -56,8 +57,25 @@ professeurLister:
     path: /professeur/lister
     controller: App\Controller\ProfesseurController::listerProfesseur
 
+
 # Cours 
 
 coursConsulter:
     path: /cours/consulter/{id}
     controller: App\Controller\CoursController::consulterCours
+
+
+#compte
+
+app_logout:
+    path: /logout
+    methods: GET
+
+app_login:
+    path: /login
+    controller: App\Controller\LoginController::index
+
+inscription:
+    path: /inscription
+    controller: App\Controller\RegistrationController::register
+
