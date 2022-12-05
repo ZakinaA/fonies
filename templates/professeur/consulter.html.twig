@@ -1,8 +1,6 @@
 {% extends "base.html.twig" %}
 {% block title %}Fiche du Professeur{% endblock %}
 
-
-
 {% block contenu %}
     <h3>Page du professeur :</h3>
     <br />
@@ -30,10 +28,12 @@
     <tr>
     	<td>Numéro de téléphone : </td><td>{{professeur.telephone}}</td></tr></tr>
     <tr>
-    </table>
 
-<h3>LISTE DES COURS DE CE PROFESSEUR</h3>
-		<table>
+    </table>
+	<br />
+	<br />
+<h3>LISTE DES COURS</h3>
+	<table class="table">
         <thead>
             <tr>
                 <td>Lundi</td>
@@ -278,11 +278,9 @@
                         	{% endif %}
 						{% endif %}
                     {% endfor %}
+</table>
                 </td>
             </tr>
-            <tbody>
-        </table>
 <br/>
 <br/>
-
 {% endblock %}
