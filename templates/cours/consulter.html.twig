@@ -11,7 +11,7 @@
   	<table class="table">
 
     <tr>
-    	<td>Professeur: </td><td><a href="">{{cours.professeur.nom}} {{cours.professeur.prenom}}</a></td></tr></tr>
+    	<td>Professeur: </td><td><a href="{{ path('professeurConsulter', { 'id': cours.professeur.id }) }}">{{cours.professeur.nom}} {{cours.professeur.prenom}}</a></td></tr></tr>
     <tr>
 
     <tr>
