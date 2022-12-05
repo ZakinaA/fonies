@@ -37,4 +37,14 @@ class ProfesseurController extends AbstractController
             'pCours' => $cours,
             'professeur' => $professeur,]);
 	}
+
+    public function listerProfesseur(ManagerRegistry $doctrine){
+
+        $repository = $doctrine->getRepository(Professeur::class);
+    
+    $professeurs= $repository->findAll();
+    return $this->render('professeur/lister.html.twig', [
+    'pProfesseurs' => $professeurs,]);	
+    
+    }
 }

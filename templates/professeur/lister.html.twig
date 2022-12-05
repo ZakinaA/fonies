@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+{% block title %}Liste des Professeur{% endblock %}
+        {% block contenu %}
+		<h3>Liste des Professeur</h3>
+		<table class="table">
+        <thead>
+            <tr>
+                <td>Nom</td>
+                <td>Prenom</td>
+            </tr>
+        </thead>
+		{% for p in pProfesseurs %}
+		<tr>
+			<td><a href="{{ path('professeurConsulter', { 'id': p.id }) }}">{{ p.nom }}</a></td>
+			<td>{{ p.prenom }}</a></td>
+	{% else %}
+		<tr>
+		<td>Aucun professeur n'a été trouvé.</td>
+		</tr>
+	{% endfor %}
+</td>
+            </tr>
+            <tbody>
+        </table>
+{% endblock %}
