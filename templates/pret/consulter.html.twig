@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 {% block title %}Fiche Pret {{pret.instrument.intitule}}{% endblock %}
 {% block contenu %}
-<h3>Fiche pret{{pret.instrument.intitule}} ({{pret.instrument.typeInstrument.libelle}})<h3>
+<h3>Fiche pret {{pret.instrument.intitule}} ({{pret.instrument.typeInstrument.libelle}})<h3>
 </br>
 <h4>Accessoires fournis</h4>
 <table class="table">
@@ -18,7 +18,7 @@
 </br>
 <h4>Les Prêts</h4>
 <table class="table">
-		<tr><th>Eleve</th><th>Date du prêt</th><th>Date de rendu</th><th>Etat avant prêt</th><th>Etat après prêt</th></tr>
+		<tr><th>Eleve</th><th>Date du prêt</th><th>Date de rendu</th><th>Etat avant prêt</th><th>Etat après prêt</th><th>Quotite</th></tr>
         <tr>
 			<td>
                 <a href="{{ path('eleveConsulter', {id : pret.eleve.id})}}">{{ pret.eleve.nom|upper }} {{pret.eleve.prenom}}</a>
@@ -33,7 +33,11 @@
         {% else %}
             <td>L'instrument n'a pas encore été rendu.</td>
         {% endif %}
-            <td>{{pret.interPret.quotite}}</td>
+        {% for q in pret.interPrets %}
+            <td>{{q.quotite}} %</td>
+        {% else %}
+            <td>100 %</td>
+        {% endfor %}
 		</tr>	
 </table>
 {% endblock %}
