@@ -85,7 +85,11 @@
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
+
+      
         <ul class="nav">
+
+
           <li class="nav-item">
             <a class="nav-link" href="{{path('route_accueil')}}">
               <i class="icon-grid menu-icon"></i>
@@ -94,19 +98,43 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{path('responsableLister')}}">
-              <i class="icon-grid menu-icon"></i>
+            <a class="nav-link" data-toggle="collapse" href="#responsable" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Les responsables</span>
+              <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="responsable">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{path('responsableLister')}}">lister</a></li>
+              </ul>
+            </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{path('eleveLister')}}">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Les eleves</span>
+            <a class="nav-link" data-toggle="collapse" href="#professeur" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Les professeurs</span>
+              <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="professeur">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{path('professeurLister')}}">Lister</a></li>
+              </ul>
+            </div>
           </li>
-          
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#eleve" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Les élèves</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="eleve">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{path('eleveLister')}}">Lister</a></li>
+              </ul>
+            </div>
+          </li>          
           
           
         </ul>
