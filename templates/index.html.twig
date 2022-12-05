@@ -26,7 +26,9 @@
             <tr>
                 <td>
                     {% for c in pCours %}
-                        
+
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Lundi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
@@ -46,11 +48,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
                         
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Mardi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
@@ -70,10 +75,13 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
+
+                    <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
                         {% if (c.jour.libelle == 'Mercredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
@@ -94,11 +102,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
                         
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Jeudi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
@@ -118,11 +129,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
                         
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Vendredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
@@ -142,11 +156,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
                         
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Samedi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
@@ -166,11 +183,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
                         
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Dimanche')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
@@ -190,6 +210,7 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
             </tr>
             <tbody>
@@ -212,6 +233,8 @@
             <tr>
                 <td>
                     {% for c in pCours %}
+
+                    <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
                         {% if (c.jour.libelle == 'Lundi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
@@ -230,11 +253,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
                         
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Mardi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
                                 Cours de {{ c.typeInstrument.libelle }}</br>
@@ -252,10 +278,13 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
+
+                    <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
                         {% if (c.jour.libelle == 'Mercredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
@@ -274,10 +303,13 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
+
+                    <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
                         {% if (c.jour.libelle == 'Jeudi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
@@ -296,10 +328,13 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
+
+                    <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
                         {% if (c.jour.libelle == 'Vendredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
@@ -318,10 +353,13 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
+
+                    <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
                         {% if (c.jour.libelle == 'Samedi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
@@ -340,10 +378,13 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
 
                 <td>
                     {% for c in pCours %}
+
+                    <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
                         {% if (c.jour.libelle == 'Dimanche')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
@@ -362,6 +403,7 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </a>
                 </td>
             </tr>
             <tbody>

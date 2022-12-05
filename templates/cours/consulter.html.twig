@@ -48,8 +48,8 @@
     
     
     <tr>
-		<td>{{ i.eleve.nom }}</td>
-        <td>{{ i.eleve.prenom}}</td>
+		<td><a href="{{ path('eleveConsulter', { 'id': i.eleve.id }) }}">{{ i.eleve.nom }}</a></td>
+        <td><a href="{{ path('eleveConsulter', { 'id': i.eleve.id }) }}">{{ i.eleve.prenom}}</a></td>
 	</tr>
 
   {% else %}
