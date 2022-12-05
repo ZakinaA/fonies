@@ -6,6 +6,8 @@
     3.@ThomasGlrbt - Thomas Guilbert
     4.@ThomasVerEecke - Thomas Ver Eecke
     
+## Compte à utiliser :
+>Compte admin: admin@admin.com / mpFonies
 ## Lien du thème bootstrap :
 
 >Thème gratuit : Skydash
