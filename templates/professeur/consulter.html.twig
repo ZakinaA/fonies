@@ -1,0 +1,308 @@
+{% extends "base.html.twig" %}
+{% block title %}Fiche du Professeur{% endblock %}
+
+{% block contenu %}
+    <h3>Page du professeur :</h3>
+    <br />
+	
+  	<table class="table">
+    <h3>Vos informations</h3>
+
+    <tr>
+    	<td>Nom : </td><td>{{professeur.nom}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Prénom : </td><td>{{professeur.prenom}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Rue : </td><td>{{professeur.Rue}}</td></tr></tr>
+    <tr>
+
+    <tr>
+    	<td>Ville : </td><td>{{professeur.codePostale}} {{professeur.ville}}</td></tr></tr>
+    <tr>
+
+
+    <tr>
+    	<td>Numéro de téléphone : </td><td>{{professeur.telephone}}</td></tr></tr>
+    <tr>
+
+    </table>
+	<br />
+	<br />
+<h3>LISTE DES COURS</h3>
+	<table class="table">
+        <thead>
+            <tr>
+                <td>Lundi</td>
+                <td>Mardi</td>
+                <td>Mercredi</td>
+                <td>Jeudi</td>
+                <td>Vendredi</td>
+                <td>Samedi</td>
+                <td>Dimanche</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {% for c in pCours %}
+
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
+                        {% if (c.jour.libelle == 'Lundi')%}
+							{% if (c.professeur.id == professeur.id)%}
+                            	{% if (c.typeCours.libelle == 'Collectif')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() < c.nbPlaces) %} 
+                                		{{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+									{% else %}
+									complet
+									{% endif %}
+									<hr>
+                            	{% endif %}
+                            	{% if (c.typeCours.libelle == 'Individuel')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() == 0) %} 
+                                		1 place disponible</br>
+									{% else %}
+									complet
+									{% endif %}
+                                	<hr>
+								{% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+					</a>
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+					<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
+                        {% if (c.jour.libelle == 'Mardi')%}
+							{% if (c.professeur.id == professeur.id)%}
+                            	{% if (c.typeCours.libelle == 'Collectif')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() < c.nbPlaces) %} 
+                                		{{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+									{% else %}
+									complet
+									{% endif %}
+									<hr>
+                                	<hr>
+                            	{% endif %}
+                            	{% if (c.typeCours.libelle == 'Individuel')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() == 0) %} 
+                                		1 place disponible</br>
+									{% else %}
+									complet
+									{% endif %}
+                                	<hr>
+								{% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+					</a>
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
+                        {% if (c.jour.libelle == 'Mercredi')%}
+							{% if (c.professeur.id == professeur.id)%}
+                            	{% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+                                	<hr>
+                            	{% endif %}
+                            	{% if (c.typeCours.libelle == 'Individuel')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+									{%  if (c.inscriptions.count() == 0) %} 
+                                		1 place disponible</br>
+									{% else %}
+									complet
+									{% endif %}
+                                	<hr>
+								{% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+					</a>
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
+                        {% if (c.jour.libelle == 'Jeudi')%}
+							{% if (c.professeur.id == professeur.id)%}
+                            	{% if (c.typeCours.libelle == 'Collectif')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() < c.nbPlaces) %} 
+                                		{{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+									{% else %}
+									complet
+									{% endif %}
+									<hr>
+                            	{% endif %}
+                            	{% if (c.typeCours.libelle == 'Individuel')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() == 0) %} 
+                                		1 place disponible</br>
+									{% else %}
+									complet
+									{% endif %}
+                                	<hr>
+								{% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+					</a>
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+					<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
+                        {% if (c.jour.libelle == 'Vendredi')%}
+							{% if (c.professeur.id == professeur.id)%}
+                            	{% if (c.typeCours.libelle == 'Collectif')%}
+                               		Cours de {{ c.typeInstrument.libelle }}</br>
+                               		Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                               		De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                               		{%  if (c.inscriptions.count() < c.nbPlaces) %} 
+                                		{{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+									{% else %}
+									complet
+									{% endif %}
+									<hr>
+
+                            	{% endif %}
+                            	{% if (c.typeCours.libelle == 'Individuel')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() == 0) %} 
+                                		1 place disponible</br>
+									{% else %}
+									complet
+									{% endif %}
+								{% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+					</a>
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
+                        {% if (c.jour.libelle == 'Samedi')%}
+							{% if (c.professeur.id == professeur.id)%}
+                            	{% if (c.typeCours.libelle == 'Collectif')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() < c.nbPlaces) %} 
+                                		{{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+									{% else %}
+									complet
+									{% endif %}
+									<hr>
+                           	 	{% endif %}
+                            	{% if (c.typeCours.libelle == 'Individuel')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() == 0) %} 
+                                		1 place disponible</br>
+									{% else %}
+									complet
+									{% endif %}
+								{% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+					</a>
+                </td>
+
+                <td>
+                    {% for c in pCours %}
+                        
+						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
+                        {% if (c.jour.libelle == 'Dimanche')%}
+							{% if (c.professeur.id == professeur.id)%}
+                            	{% if (c.typeCours.libelle == 'Collectif')%}
+                               		Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() < c.nbPlaces) %} 
+                                		{{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
+									{% else %}
+									complet
+									{% endif %}
+									<hr>
+                            	{% endif %}
+                            	{% if (c.typeCours.libelle == 'Individuel')%}
+                                	Cours de {{ c.typeInstrument.libelle }}</br>
+                                	Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                	De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                	Cours {{ c.typeCours.libelle }} </br>
+                                	{%  if (c.inscriptions.count() == 0) %} 
+                                		1 place disponible</br>
+									{% else %}
+									complet
+									{% endif %}
+                            	{% endif %}
+                        	{% endif %}
+						{% endif %}
+                    {% endfor %}
+					</a>
+</table>
+                </td>
+            </tr>
+<br/>
+<br/>
+{% endblock %}

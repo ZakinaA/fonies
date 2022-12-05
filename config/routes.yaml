@@ -24,8 +24,6 @@ responsableLister:
     path: /responsable/lister
     controller: App\Controller\ResponsableController::listerResponsable
 
-
-
 # Eleve
 
 eleveConsulter:
@@ -42,11 +40,30 @@ classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
     controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
 
+
+# Classe Pret
+
+pretConsulter:
+    path: /pret/consulter/{id}
+    controller: App\Controller\PretController::consulterPret
+
+# Professeur
+
+professeurConsulter:
+    path: /professeur/consulter/{id}
+    controller: App\Controller\ProfesseurController::consulterProfesseur
+
+professeurLister:
+    path: /professeur/lister
+    controller: App\Controller\ProfesseurController::listerProfesseur
+
+
 # Cours 
 
 coursConsulter:
     path: /cours/consulter/{id}
     controller: App\Controller\CoursController::consulterCours
+
 
 #compte
 
@@ -61,3 +78,4 @@ app_login:
 inscription:
     path: /inscription
     controller: App\Controller\RegistrationController::register
+
