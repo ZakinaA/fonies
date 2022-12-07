@@ -20,15 +20,15 @@ class EleveType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('numRue', IntegerType::class)
-            ->add('rue', TextType::class)
-            ->add('code_postale', IntegerType::class)
-            ->add('ville', TextType::class)
-            ->add('telephone', TextType::class)
-            ->add('email', TextType::class)
-            ->add('responsable', EntityType::class, array('class'=>'App\Entity\Responsable','choice_label'=>'nom'))
+            ->add('nom', TextType::class, array('label'=>'  '))
+            ->add('prenom', TextType::class, array('label'=>'  '))
+            ->add('numRue', IntegerType::class, array('label'=>'  '))
+            ->add('rue', TextType::class, array('label'=>'  '))
+            ->add('code_postale', IntegerType::class, array('label'=>'  '))
+            ->add('ville', TextType::class, array('label'=>'  '))
+            ->add('telephone', TextType::class, array('label'=>'  '))
+            ->add('email', TextType::class, array('label'=>'  '))
+            ->add('responsable', EntityType::class, array('class'=>'App\Entity\Responsable','choice_label'=>'nom', 'label'=>'  '))
         ;
     }
 
