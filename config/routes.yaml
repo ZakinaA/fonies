@@ -47,6 +47,10 @@ pretConsulter:
     path: /pret/consulter/{id}
     controller: App\Controller\PretController::consulterPret
 
+pretAjouter:
+    path: /contratPret/ajouter
+    controller: App\Controller\ContratPretController::ajouterContratPret
+
 # Professeur
 
 professeurConsulter:

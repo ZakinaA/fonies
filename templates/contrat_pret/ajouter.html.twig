@@ -1,0 +1,67 @@
+{# templates/contrat_pret/ajouter.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un prêt{% endblock %}
+
+
+{% block contenu %}
+
+
+<div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Default form</h4>
+                  <p class="card-description">
+                    Basic form layout
+                  </p>
+                  {{ form_start(form, 
+                    {class : 'form-sample'}) 
+                    }}
+                    <div class="form-group">
+                    <label for="eleve">Eleve</label>
+                      {{ form_row(form.eleve, 
+                        {class : 'form-control'},
+                        {id : 'eleve'}) }}
+                    </div>
+                    <div class="form-group">
+                    <label for="instrument">Instrument</label>
+                      {{ form_row(form.instrument, 
+                        {class : 'form-control'},
+                        {id : 'instrument'}) }}
+                    </div>
+                    <div class="form-group">
+                      <label for="dateD">Date de début</label>
+                      {{ form_row(form.dateDebut, 
+                      {class : 'form-control'},
+                        {id : 'dateD'}) }}
+                    </div>
+                    <div class="form-group">
+                      <label for="dateF">Date de fin</label>
+                      {{ form_row(form.dateFin, 
+                      {class : 'form-control'},
+                        {id : 'dateF'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="etatD">Etat de début</label>
+                      {{ form_row(form.etatDetailleDebut, 
+                      {class : 'form-control'},
+                        {id : 'etatD'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="etatR">Etat de retour</label>
+                      {{ form_row(form.etatDetailleRetour, 
+                      {class : 'form-control'},
+                        {id : 'etatR'}) }}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Valider</button>
+                    <button class="btn btn-light">Annuler</button>
+                {{ form_end(form) }}
+                </div>
+              </div>
+            </div>
+
+{% endblock %}

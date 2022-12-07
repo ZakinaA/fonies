@@ -3,21 +3,51 @@
 namespace App\Form;
 
 use App\Entity\ContratPret;
+use App\Repository\InstrumentRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Doctrine\ORM\QueryBuilder;
 
 class ContratPretType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('dateDebut')
-            ->add('dateFin')
-            ->add('etatDetailleDebut')
-            ->add('etatDetailleRetour')
-            ->add('eleve')
-            ->add('instrument')
+            ->add('dateDebut', DateType::class, array('input' => 'datetime',
+                                                        'widget' => 'single_text',
+                                                        'required' => true,
+                                                        'label' =>'  ',
+                                                        'placeholder' => 'jj/mm/aaaa'))
+            
+            ->add('dateFin', DateType::class, array('input' => 'datetime',
+                                                    'widget' => 'single_text',
+                                                    'required' => true,
+                                                    'label' =>'  ',
+                                                    'placeholder' => 'jj/mm/aaaa'))
+
+            ->add('etatDetailleDebut', TextareaType::class, array('required' => true,
+                                                                'label' =>'  '))
+            ->add('etatDetailleRetour', TextareaType::class, array('label' =>'  '))
+            ->add('instrument', EntityType::class, array('class' => 'App\Entity\Instrument',
+                                                    'query_builder' => function (InstrumentRepository $er) {
+                                                        return $er
+                                                        ->getRepository('MyBundle:ContratPret')
+                                                        ->createQueryBuilder('i')
+                                                        ->join('i.id', 'r')
+                                                        ->where('r.instrument_id=i.id')
+                                                        ;
+                                                    },
+                                                    'choice_label' => 'nom', 'label' => ' ' ))
+
+            ->add('eleve', EntityType::class, array('class' => 'App\Entity\Eleve','choice_label' => 'intitule', 'label' => ' '  ))
         ;
     }
 
@@ -27,4 +57,6 @@ class ContratPretType extends AbstractType
             'data_class' => ContratPret::class,
         ]);
     }
+
+    
 }

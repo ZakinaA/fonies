@@ -32,7 +32,7 @@ class PretController extends AbstractController
         }
 
         return $this->render('pret/consulter.html.twig', [
-            'pret' => $pret,]);
+            '' => $pret,]);
 
 
     }
