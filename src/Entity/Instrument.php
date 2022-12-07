@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: InstrumentRepository::class)]
 class Instrument
@@ -17,18 +18,22 @@ class Instrument
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(min:2,max:50,minMessage: 'L\'intitule doit comporter au minimum 2 caractères',maxMessage: 'L\'intitule doit comporter au maximum 50 caractères')]
     private ?string $intitule = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_achat = null;
 
     #[ORM\Column(length: 10)]
+    #[Assert\Length(min:2,max:10,minMessage: 'Le numéro de série doit comporter au minimum 2 caractères',maxMessage: 'Le numéro de série doit comporter au maximum 50 caractères')]
     private ?string $numeroserie = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(min:2,max:50,minMessage: 'La couleur doit comporter au minimum 2 caractères',maxMessage: 'La couleur doit comporter au maximum 50 caractères')]
     private ?string $couleur = null;
 
     #[ORM\Column(length: 50, nullable: true)]
+    #[Assert\Length(min:2,max:50,minMessage: 'L\'utilisation doit comporter au minimum 2 caractères',maxMessage: 'L\'utilisation doit comporter au maximum 50 caractères')]
     private ?string $utilisation = null;
 
     #[ORM\Column(nullable: true)]
