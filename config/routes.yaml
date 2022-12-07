@@ -14,6 +14,10 @@ instrumentConsulter:
     path: /instrument/consulter/{id}
     controller: App\Controller\InstrumentController::consulterInstruments
 
+instrumentAjouter:
+    path: /instrument/ajouter
+    controller: App\Controller\InstrumentController::ajouterInstruments
+
 # Responsable
 
 responsableConsulter:
