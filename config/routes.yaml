@@ -34,6 +34,10 @@ eleveLister:
     path: /eleve/lister
     controller: App\Controller\EleveController::listerEleve
 
+eleveAjouter:
+    path: /eleve/ajouter
+    controller: App\Controller\EleveController::ajouterEleve
+
 # Classe Instrument
 
 classeInstrumentConsulter:

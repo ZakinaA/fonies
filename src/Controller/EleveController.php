@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Eleve;
 use App\Entity\Responsable;
 use App\Entity\Inscription;
+use App\Form\EleveType;
 
 
 class EleveController extends AbstractController
@@ -56,7 +57,7 @@ return $this->render('eleve/lister.html.twig', [
 // Fonction permettant d'ajouter un élève depuis un formulaire
 
 public function ajouterEleve(Request $request,ManagerRegistry $doctrine){
-    $eleve = new Eleve();
+    $eleve = new eleve();
 	$form = $this->createForm(EleveType::class, $eleve);
 	$form->handleRequest($request);
  
