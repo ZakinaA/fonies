@@ -4,8 +4,10 @@ namespace App\Controller;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Instrument;
 use App\Entity\InterPret;
+use App\Form\InstrumentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class InstrumentController extends AbstractController
@@ -31,5 +33,28 @@ class InstrumentController extends AbstractController
             'instrument' => $instrument,]);
 
 
+    }
+
+    public function ajouterInstruments(ManagerRegistry $doctrine,Request $request){
+        
+        $instrument = new instrument();
+        $form = $this->createForm(InstrumentType::class, $instrument);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $instrument = $form->getData();
+
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($instrument);
+            $entityManager->flush();
+
+            return $this->render('instrument/consulter.html.twig', ['instrument' => $instrument]);
+        }
+        else
+        {
+            return $this->render('instrument/ajouter.html.twig', array('form' => $form->createView(), ));
+        }
+        
     }
 }
