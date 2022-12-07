@@ -34,7 +34,7 @@ class Eleve
     private ?string $ville = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $telephone = null;
+    private ?string $telephone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
@@ -132,12 +132,12 @@ class Eleve
         return $this;
     }
 
-    public function getTelephone(): ?int
+    public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
-    public function setTelephone(?int $telephone): self
+    public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
 
