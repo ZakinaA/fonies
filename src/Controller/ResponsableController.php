@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Responsable;
 use App\Entity\Eleve;
+use App\Form\ResponsableType;
 
 
 class ResponsableController extends AbstractController

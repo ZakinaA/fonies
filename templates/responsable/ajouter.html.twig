@@ -73,11 +73,21 @@
                     </div>
                     
                     <div class="form-group">
-                    <label for="tranche">Tranche de Quotient familial</label>
+                    <label for="tranche">Tranche de Quotient familial*</label>
                       {{ form_row(form.tranche, 
                         {class : 'form-control'},
                         {id : 'tranche'}) }}
                     </div>
+                    <p><i>* Quotient familial par identifiants : <br/>
+                            1 -> inférieur à 0€ <br/>
+                            2 -> de 0 à 250€ <br/>
+                            3 -> de 251 à 425€ <br/>
+                            4 -> de 426 à 680€ <br/>
+                            5 -> de 681 à 935€ <br/>
+                            6 -> de 936 à 1800€ <br/>
+                            7 -> supérieur à 1801€ <br/>
+                    
+                    </i></p>
 
                     <button type="submit" class="btn btn-primary mr-2">Valider</button>
                     <button class="btn btn-light">Annuler</button>
