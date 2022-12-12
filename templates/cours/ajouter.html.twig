@@ -1,0 +1,84 @@
+{# templates/eleve/ajouter.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un cours{% endblock %}
+
+{% block contenu %}
+
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Ajouter un cours</h4>
+                  <p class="card-description">
+                    Rentrez les informations du nouveau cours
+                  </p>
+                  {{ form_start(form, 
+                    {class : 'form-sample'}) 
+                    }}
+                    <div class="form-group">
+                    <label for="agemini">Age Minimume</label>
+                      {{ form_row(form.agemini, 
+                        {class : 'form-control'},
+                        {id : 'agemini'}) }}
+                    </div>
+                    <div class="form-group">
+                    <label for="agemax">Age Maximume</label>
+                      {{ form_row(form.agemax,
+                        {class : 'form-control'},
+                        {id : 'agemax'}) }}
+                    </div>
+                    <div class="form-group">
+                      <label for="heureDebut">Heure de debut du cours</label>
+                      {{ form_row(form.heureDebut, 
+                      {class : 'form-control'},
+                        {id : 'heureDebut'}) }}
+                    </div>
+                    <div class="form-group">
+                      <label for="heureFin">Heure de fin du cours</label>
+                      {{ form_row(form.heureFin, 
+                      {class : 'form-control'},
+                        {id : 'heureFin'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="nb_places">Nombre de place disponible</label>
+                      {{ form_row(form.nbPlaces, 
+                      {class : 'form-control'},
+                        {id : 'nbPlaces'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="professeur_id">Professeur</label>
+                      {{ form_row(form.professeur, 
+                      {class : 'form-control'},
+                        {id : 'professeur'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="jour_id">Jour du cours</label>
+                      {{ form_row(form.jour, 
+                      {class : 'form-control'},
+                        {id : 'jour'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="type_cours_id">Cours individuel ou collectif</label>
+                      {{ form_row(form.typeCours, 
+                      {class : 'form-control'},
+                        {id : 'typeCours'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="typeInstrument">Instrument appris</label>
+                      {{ form_row(form.typeInstrument, 
+                      {class : 'form-control'},
+                        {id : 'typeInstrument'}) }}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Valider</button>
+                    <button class="btn btn-light">Annuler</button>
+                {{ form_end(form) }}
+                </div>
+              </div>
+
+{% endblock %}

@@ -6,11 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Cours;
 use App\Entity\Jour;
 use App\Entity\TypeCours;
 use App\Entity\TypeInstrument;
 use App\Entity\Inscription;
+use App\Form\CoursType;
 
 
 class CoursController extends AbstractController
@@ -47,4 +49,24 @@ class CoursController extends AbstractController
         'cours'=>$cours,]);
     }
 
+    public function ajouterCours(Request $request,ManagerRegistry $doctrine){
+        $cours = new cours();
+        $form = $this->createForm(CoursType::class, $cours);
+        $form->handleRequest($request);
+     
+        if ($form->isSubmitted() && $form->isValid()) {
+     
+                $cours = $form->getData();
+     
+                $entityManager = $doctrine->getManager();
+                $entityManager->persist($cours);
+                $entityManager->flush();
+     
+            return $this->render('cours/consulter.html.twig', ['cours' => $cours,]);
+        }
+        else
+            {
+                return $this->render('cours/ajouter.html.twig', array('form' => $form->createView(),));
+        }
+    }
 }

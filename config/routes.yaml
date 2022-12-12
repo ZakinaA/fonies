@@ -72,6 +72,9 @@ coursConsulter:
     path: /cours/consulter/{id}
     controller: App\Controller\CoursController::consulterCours
 
+coursAjouter:
+    path: /cours/ajouter
+    controller: App\Controller\CoursController::ajouterCours
 
 #compte
 
