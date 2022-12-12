@@ -1,0 +1,98 @@
+{# templates/eleve/ajouter.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un responsable{% endblock %}
+
+{% block contenu %}
+
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Modifier un responsable</h4>
+                  <p class="card-description">
+                    Changer les informations du responsable
+                  </p>
+                  {{ form_start(form, 
+                    {class : 'form-sample'}) 
+                    }}
+                   
+                    <div class="form-group">
+                    <label for="nom">Nom</label>
+                      {{ form_row(form.nom, 
+                        {class : 'form-control'},
+                        {id : 'nom'}) }}
+                    </div>
+                    
+                    <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                      {{ form_row(form.prenom, 
+                        {class : 'form-control'},
+                        {id : 'prenom'}) }}
+                    </div>
+
+                    <div class="form-group">
+                    <label for="email">Adresse E-mail</label>
+                      {{ form_row(form.email, 
+                        {class : 'form-control'},
+                        {id : 'email'}) }}
+                    </div>
+
+                    <div class="form-group">
+                    <label for="numRue">Numéro de rue</label>
+                      {{ form_row(form.numRue, 
+                        {class : 'form-control'},
+                        {id : 'numRue'}) }}
+                    </div>
+
+                    <div class="form-group">
+                    <label for="rue">Rue</label>
+                      {{ form_row(form.rue, 
+                        {class : 'form-control'},
+                        {id : 'rue'}) }}
+                    </div>
+
+                    <div class="form-group">
+                    <label for="ville">ville</label>
+                      {{ form_row(form.ville, 
+                        {class : 'form-control'},
+                        {id : 'ville'}) }}
+                    </div>
+
+                    <div class="form-group">
+                    <label for="codePostal">Code postal</label>
+                      {{ form_row(form.code_postal, 
+                        {class : 'form-control'},
+                        {id : 'codePostal'}) }}
+                    </div>
+
+                    <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                      {{ form_row(form.telephone, 
+                        {class : 'form-control'},
+                        {id : 'telephone'}) }}
+                    </div>
+                    
+                    <div class="form-group">
+                    <label for="tranche">Tranche de Quotient familial*</label>
+                      {{ form_row(form.tranche, 
+                        {class : 'form-control'},
+                        {id : 'tranche'}) }}
+                    </div>
+                    <p><i>* Quotient familial par identifiants : <br/>
+                            1 -> inférieur à 0€ <br/>
+                            2 -> de 0 à 250€ <br/>
+                            3 -> de 251 à 425€ <br/>
+                            4 -> de 426 à 680€ <br/>
+                            5 -> de 681 à 935€ <br/>
+                            6 -> de 936 à 1800€ <br/>
+                            7 -> supérieur à 1801€ <br/>
+                    
+                    </i></p>
+
+                    <button type="submit" class="btn btn-primary mr-2">Valider</button>
+                    <button class="btn btn-light">Annuler</button>
+                {{ form_end(form) }}
+                </div>
+              </div>
+
+{% endblock %}
