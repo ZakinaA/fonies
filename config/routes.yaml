@@ -76,6 +76,10 @@ professeurAjouter:
     path: /professeur/ajouter
     controller: App\Controller\ProfesseurController::ajouterProfesseur
 
+professeurModifier:
+    path: /professeur/modifier/{id}
+    controller: App\Controller\ProfesseurController::modifierProfesseur
+
 # Cours 
 
 coursConsulter:
