@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Professeur;
 use App\Entity\Cours;
+use App\Form\ProfesseurType;
 
 class ProfesseurController extends AbstractController
 {
@@ -34,7 +35,6 @@ class ProfesseurController extends AbstractController
 		}
 
 		return $this->render('professeur/consulter.html.twig', [
-            'pCours' => $cours,
             'professeur' => $professeur,]);
 	}
 
@@ -46,5 +46,26 @@ class ProfesseurController extends AbstractController
     return $this->render('professeur/lister.html.twig', [
     'pProfesseurs' => $professeurs,]);	
     
+    }
+
+    public function ajouterProfesseur(ManagerRegistry $doctrine,Request $request){
+    $professeur = new professeur();
+	$form = $this->createForm(ProfesseurType::class, $professeur);
+	$form->handleRequest($request);
+ 
+	if ($form->isSubmitted() && $form->isValid()) {
+ 
+            $professeur = $form->getData();
+ 
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($professeur);
+            $entityManager->flush();
+ 
+	    return $this->render('professeur/consulter.html.twig', ['professeur' => $professeur,]);
+	}
+	else
+        {
+            return $this->render('professeur/ajouter.html.twig', array('form' => $form->createView(),));
+	    }
     }
 }
