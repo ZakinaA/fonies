@@ -98,20 +98,21 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#responsable" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#responsable" aria-expanded="false" aria-controls="responsable">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Les responsables</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="responsable">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{path('responsableLister')}}">lister</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{path('responsableLister')}}">Lister</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{path('responsableAjouter')}}">Ajouter</a></li>              
               </ul>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#professeur" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#professeur" aria-expanded="false" aria-controls="professeur">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Les professeurs</span>
               <i class="menu-arrow"></i>
@@ -119,12 +120,13 @@
             <div class="collapse" id="professeur">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{path('professeurLister')}}">Lister</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{path('professeurAjouter')}}">Ajouter</a></li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#eleve" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#eleve" aria-expanded="false" aria-controls="../eleve">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Les élèves</span>
               <i class="menu-arrow"></i>
@@ -132,6 +134,7 @@
             <div class="collapse" id="eleve">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{path('eleveLister')}}">Lister</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{path('eleveAjouter')}}">Ajouter</a></li>
               </ul>
             </div>
           </li>          

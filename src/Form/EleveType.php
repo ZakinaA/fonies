@@ -28,7 +28,14 @@ class EleveType extends AbstractType
             ->add('ville', TextType::class, array('label'=>'  '))
             ->add('telephone', TextType::class, array('label'=>'  '))
             ->add('email', TextType::class, array('label'=>'  '))
-            ->add('responsable', EntityType::class, array('class'=>'App\Entity\Responsable','choice_label'=>'nom', 'label'=>'  '))
+            ->add('responsable', EntityType::class, array('class'=>'App\Entity\Responsable',
+            'choice_label'=>
+            function ($resp) {
+                $prenom= $resp->getPrenom();
+                $nom= $resp->getNom();
+                return strtoupper($nom)." ".$prenom;
+            }, 
+            'label'=>'  '))
         ;
     }
 
