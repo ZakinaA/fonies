@@ -26,11 +26,12 @@
     	<td>Utilisation : </td>
         {% if instrument.Utilisation == null %}
         
-        <td>Cet instrument n'a pas encore été prêté</td>
+        <td>Cet instrument n'est pas destiné a être prêté</td>
         
         {% else %}
         <td>{{instrument.Utilisation}} </br>
             <a href="{{ path('instruContratPretLister', { 'id': instrument.id }) }}">Voir la liste des prets</a> </br>
+             <a href="{{ path('contratPretAjouter') }}">Ajouter un prêt</a> </br>
         
         {% endif %}
     </tr>

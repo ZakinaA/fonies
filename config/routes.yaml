@@ -47,7 +47,7 @@ classeInstrumentConsulter:
 
 # Classe Pret
 
-pretAjouter:
+contratPretAjouter:
     path: /contratPret/ajouter
     controller: App\Controller\ContratPretController::ajouterContratPret
 
