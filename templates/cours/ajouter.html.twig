@@ -40,8 +40,16 @@
                         {id : 'heureFin'}) }}
                     </div>
 
+                    
                     <div class="form-group">
-                      <label for="nb_places">Nombre de place disponible</label>
+                      <label for="type_cours_id">Cours individuel ou collectif</label>
+                      {{ form_row(form.typeCours, 
+                      {class : 'form-control'},
+                        {id : 'typeCours'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="nb_places">Nombres de places (si cours collectif)</label>
                       {{ form_row(form.nbPlaces, 
                       {class : 'form-control'},
                         {id : 'nbPlaces'}) }}
@@ -61,12 +69,6 @@
                         {id : 'jour'}) }}
                     </div>
 
-                    <div class="form-group">
-                      <label for="type_cours_id">Cours individuel ou collectif</label>
-                      {{ form_row(form.typeCours, 
-                      {class : 'form-control'},
-                        {id : 'typeCours'}) }}
-                    </div>
 
                     <div class="form-group">
                       <label for="typeInstrument">Instrument appris</label>

@@ -29,7 +29,14 @@ class CoursType extends AbstractType
             ->add('heureDebut', TimeType::class, array('label'=>'  '))
             ->add('heureFin', TimeType::class, array('label'=>'  '))
             ->add('nbPlaces', IntegerType::class, array('label'=>'  '))
-            ->add('professeur', EntityType::class, array('class'=>'App\Entity\Professeur','choice_label'=>'nom','label'=>'  '))
+            ->add('professeur', EntityType::class, array('class'=>'App\Entity\Professeur',
+            'choice_label'=>
+            function ($prof) {
+                $prenom= $prof->getPrenom();
+                $nom= $prof->getNom();
+                return strtoupper($nom)." ".$prenom;
+            },
+            'label'=>'  '))
             ->add('jour', EntityType::class, array('class'=>'App\Entity\Jour','choice_label'=>'libelle','label'=>'  '))
             ->add('typeCours', EntityType::class, array('class'=>'App\Entity\TypeCours','choice_label'=>'libelle','label'=>'  '))
             ->add('typeInstrument', EntityType::class, array('class'=>'App\Entity\TypeInstrument','choice_label'=>'libelle','label'=>'  '))
