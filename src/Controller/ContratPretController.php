@@ -24,6 +24,7 @@ class ContratPretController extends AbstractController
         $contratPret = new contratPret();
         $form = $this->createForm(ContratPretType::class, $contratPret);
         $form->handleRequest($request);
+        $dateJour = '';
     
         if ($form->isSubmitted() && $form->isValid()) {
     
@@ -37,7 +38,7 @@ class ContratPretController extends AbstractController
         }
         else
             {
-                return $this->render('contrat_pret/ajouter.html.twig', array('form' => $form->createView(),));
+                return $this->render('contrat_pret/ajouter.html.twig', array('2022-12-07' => $dateJour,'form' => $form->createView(),));
         }
     }
 }

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\ContratPret;
 use App\Repository\InstrumentRepository;
+use App\Repository\ContratPretRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,6 +21,7 @@ class ContratPretType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $dateJour = '2022-12-07';
         $builder
             ->add('dateDebut', DateType::class, array('input' => 'datetime',
                                                         'widget' => 'single_text',
@@ -35,19 +37,23 @@ class ContratPretType extends AbstractType
 
             ->add('etatDetailleDebut', TextareaType::class, array('required' => true,
                                                                 'label' =>'  '))
-            ->add('etatDetailleRetour', TextareaType::class, array('label' =>'  '))
+            ->add('etatDetailleRetour', TextareaType::class, array('label' =>'  ', 'required' => false,))
+            
             ->add('instrument', EntityType::class, array('class' => 'App\Entity\Instrument',
-                                                    'query_builder' => function (InstrumentRepository $er) {
-                                                        return $er
-                                                        ->getRepository('MyBundle:ContratPret')
-                                                        ->createQueryBuilder('i')
-                                                        ->join('i.id', 'r')
-                                                        ->where('r.instrument_id=i.id')
-                                                        ;
-                                                    },
-                                                    'choice_label' => 'nom', 'label' => ' ' ))
+                                                        'query_builder' => function(InstrumentRepository $er) use ($dateJour)
+                                                            {
+                                                                return $er->findAllInstrumentByPretAuj($dateJour);
+                                                            },
+                                                    'choice_label' => 'intitule', 'label' => ' ' ))
 
-            ->add('eleve', EntityType::class, array('class' => 'App\Entity\Eleve','choice_label' => 'intitule', 'label' => ' '  ))
+            ->add('eleve', EntityType::class, array('class' => 'App\Entity\Eleve',
+                                                    'choice_label' => 
+                                                        function ($eleve) {
+                                                            $prenom= $eleve->getPrenom();
+                                                            $nom= $eleve->getNom();
+                                                            return $nom." ".$prenom;
+                                                        }, 
+                                                    'label' => ' '  ))
         ;
     }
 
