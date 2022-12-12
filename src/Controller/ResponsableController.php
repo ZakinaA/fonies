@@ -50,5 +50,25 @@ return $this->render('responsable/lister.html.twig', [
 }
 
 
+public function ajouterResponsable(Request $request,ManagerRegistry $doctrine){
+    $responsable = new responsable();
+	$form = $this->createForm(ResponsableType::class, $responsable);
+	$form->handleRequest($request);
+ 
+	if ($form->isSubmitted() && $form->isValid()) {
+ 
+            $responsable = $form->getData();
+ 
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($responsable);
+            $entityManager->flush();
+ 
+	    return $this->render('responsable/consulter.html.twig', ['responsable' => $responsable,]);
+	}
+	else
+        {
+            return $this->render('responsable/ajouter.html.twig', array('form' => $form->createView(),));
+	}
+}
 
 }
