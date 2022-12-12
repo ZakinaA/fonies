@@ -68,4 +68,33 @@ class InstrumentController extends AbstractController
         }
         
     }
+
+
+    public function modifierInstrument(ManagerRegistry $doctrine, $id, Request $request){
+ 
+        //récupération du instrument dont l'id est passé en paramètre
+        $instrument = $doctrine->getRepository(Instrument::class)->find($id);
+     
+        if (!$instrument) {
+            throw $this->createNotFoundException('Aucun instrument trouvé avec le numéro '.$id);
+        }
+        else
+        {
+                $form = $this->createForm(InstrumentModifierType::class, $instrument);
+                $form->handleRequest($request);
+     
+                if ($form->isSubmitted() && $form->isValid()) {
+     
+                     $instrument = $form->getData();
+                     $entityManager = $doctrine->getManager();
+                     $entityManager->persist($instrument);
+                     $entityManager->flush();
+                     return $this->render('instrument/consulter.html.twig', ['instrument' => $instrument,]);
+               }
+               else{
+                    return $this->render('instrument/modifier.html.twig', array('form' => $form->createView(),));
+               }
+            }
+     }
+
 }
