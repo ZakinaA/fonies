@@ -11,6 +11,7 @@ use App\Entity\Eleve;
 use App\Entity\Responsable;
 use App\Entity\Inscription;
 use App\Form\EleveType;
+use App\Form\EleveModifierType;
 
 
 class EleveController extends AbstractController
