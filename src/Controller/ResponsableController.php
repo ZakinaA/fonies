@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Responsable;
 use App\Entity\Eleve;
+use App\Form\ResponsableType;
 
 
 class ResponsableController extends AbstractController
@@ -48,4 +49,27 @@ return $this->render('responsable/lister.html.twig', [
 'pResponsables' => $responsables,]);	
 
 }
+
+
+public function ajouterResponsable(Request $request,ManagerRegistry $doctrine){
+    $responsable = new responsable();
+	$form = $this->createForm(ResponsableType::class, $responsable);
+	$form->handleRequest($request);
+ 
+	if ($form->isSubmitted() && $form->isValid()) {
+ 
+            $responsable = $form->getData();
+ 
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($responsable);
+            $entityManager->flush();
+ 
+	    return $this->render('responsable/consulter.html.twig', ['responsable' => $responsable,]);
+	}
+	else
+        {
+            return $this->render('responsable/ajouter.html.twig', array('form' => $form->createView(),));
+	}
+}
+
 }
