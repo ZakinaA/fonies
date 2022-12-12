@@ -6,6 +6,7 @@ use App\Repository\EleveRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EleveRepository::class)]
 class Eleve
@@ -16,34 +17,73 @@ class Eleve
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: '2 caractères minimum',
+        maxMessage: '50 caractères maximum',
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: '2 caractères minimum',
+        maxMessage: '50 caractères maximum',
+    )]
     private ?string $prenom = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: true)]    
+    #[Assert\Length(
+        max: 5,
+        maxMessage: '5 caractères maximum',
+    )]
     private ?int $numRue = null;
 
     #[ORM\Column(length: 50, nullable: true)]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: '2 caractères minimum',
+        maxMessage: '50 caractères maximum',
+    )]
     private ?string $rue = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\Length(
+        max: 5,
+        maxMessage: '5 caractères maximum',
+    )]
     private ?int $code_postale = null;
 
     #[ORM\Column(length: 100, nullable: true)]
+    #[Assert\Length(
+        min: 2,
+        max: 100,
+        minMessage: '2 caractères minimum',
+        maxMessage: '100 caractères maximum',
+    )]
     private ?string $ville = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $telephone = null;
+    #[Assert\Length(
+        max: 10,
+        maxMessage: '10 caractères maximum',
+    )]
+    private ?string $telephone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(
+        min: 2,
+        max: 100,
+        minMessage: '2 caractères minimum',
+        maxMessage: '100 caractères maximum',
+    )]
     private ?string $email = null;
 
     #[ORM\ManyToOne(inversedBy: 'eleve')]
     private ?Responsable $responsable = null;
-
-    #[ORM\OneToMany(mappedBy: 'eleve', targetEntity: Compte::class)]
-    private Collection $compte;
 
     #[ORM\OneToMany(mappedBy: 'eleve', targetEntity: Inscription::class)]
     private Collection $inscription;
@@ -135,12 +175,12 @@ class Eleve
         return $this;
     }
 
-    public function getTelephone(): ?int
+    public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
-    public function setTelephone(?int $telephone): self
+    public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
 
@@ -167,36 +207,6 @@ class Eleve
     public function setResponsable(?Responsable $responsable): self
     {
         $this->responsable = $responsable;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Compte>
-     */
-    public function getCompte(): Collection
-    {
-        return $this->compte;
-    }
-
-    public function addCompte(Compte $compte): self
-    {
-        if (!$this->compte->contains($compte)) {
-            $this->compte->add($compte);
-            $compte->setEleve($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCompte(Compte $compte): self
-    {
-        if ($this->compte->removeElement($compte)) {
-            // set the owning side to null (unless already changed)
-            if ($compte->getEleve() === $this) {
-                $compte->setEleve(null);
-            }
-        }
 
         return $this;
     }

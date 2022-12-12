@@ -14,6 +14,10 @@ instrumentConsulter:
     path: /instrument/consulter/{id}
     controller: App\Controller\InstrumentController::consulterInstruments
 
+instrumentAjouter:
+    path: /instrument/ajouter
+    controller: App\Controller\InstrumentController::ajouterInstruments
+
 # Responsable
 
 responsableConsulter:
@@ -34,11 +38,22 @@ eleveLister:
     path: /eleve/lister
     controller: App\Controller\EleveController::listerEleve
 
+eleveAjouter:
+    path: /eleve/ajouter
+    controller: App\Controller\EleveController::ajouterEleve
+
 # Classe Instrument
 
 classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
     controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
+
+
+# Classe Pret
+
+pretConsulter:
+    path: /pret/consulter/{id}
+    controller: App\Controller\PretController::consulterPret
 
 # Professeur
 
@@ -53,3 +68,25 @@ professeurLister:
 professeurAjouter:
     path: /professeur/ajouter
     controller: App\Controller\ProfesseurController::ajouterProfesseur
+
+# Cours 
+
+coursConsulter:
+    path: /cours/consulter/{id}
+    controller: App\Controller\CoursController::consulterCours
+
+
+#compte
+
+app_logout:
+    path: /logout
+    methods: GET
+
+app_login:
+    path: /login
+    controller: App\Controller\LoginController::index
+
+inscription:
+    path: /inscription
+    controller: App\Controller\RegistrationController::register
+    

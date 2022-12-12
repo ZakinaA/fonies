@@ -8807,14 +8807,15 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #4B49AC;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
-  text-decoration: underline;
+  color: #dbdaee !important;
+  text-decoration: none !important;
+  transition: 0.2s;
 }
 
 a:not([href]):not([class]) {
@@ -14028,7 +14029,7 @@ input[type="button"].btn-block {
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {

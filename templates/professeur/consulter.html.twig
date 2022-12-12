@@ -1,8 +1,6 @@
 {% extends "base.html.twig" %}
 {% block title %}Fiche du Professeur{% endblock %}
 
-
-
 {% block contenu %}
     <h3>Page du professeur :</h3>
     <br />
@@ -30,10 +28,12 @@
     <tr>
     	<td>Numéro de téléphone : </td><td>{{professeur.telephone}}</td></tr></tr>
     <tr>
-    </table>
 
-<h3>LISTE DES COURS DE CE PROFESSEUR</h3>
-		<table>
+    </table>
+	<br />
+	<br />
+<h3>LISTE DES COURS</h3>
+	<table class="table">
         <thead>
             <tr>
                 <td>Lundi</td>
@@ -48,8 +48,11 @@
         <tbody>
             <tr>
                 <td>
+                    
                     {% for c in professeur.cours %}
                         
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Lundi')%}
 							{% if (c.professeur.id == professeur.id)%}
                             	{% if (c.typeCours.libelle == 'Collectif')%}
@@ -79,11 +82,15 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+
+					</a>
                 </td>
 
                 <td>
                     {% for c in professeur.cours %}
                         
+					<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Mardi')%}
 							{% if (c.professeur.id == professeur.id)%}
                             	{% if (c.typeCours.libelle == 'Collectif')%}
@@ -114,11 +121,16 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+					</a>
                 </td>
 
                 <td>
+                    
                     {% for c in professeur.cours %}
                         
+
+                        <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Mercredi')%}
 							{% if (c.professeur.id == professeur.id)%}
                             	{% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
@@ -144,11 +156,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+					</a>
                 </td>
 
                 <td>
                     {% for c in professeur.cours %}
                         
+						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Jeudi')%}
 							{% if (c.professeur.id == professeur.id)%}
                             	{% if (c.typeCours.libelle == 'Collectif')%}
@@ -178,11 +193,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+					</a>
                 </td>
 
                 <td>
                     {% for c in professeur.cours %}
                         
+					<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Vendredi')%}
 							{% if (c.professeur.id == professeur.id)%}
                             	{% if (c.typeCours.libelle == 'Collectif')%}
@@ -212,11 +230,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+					</a>
                 </td>
 
                 <td>
                     {% for c in professeur.cours %}
                         
+						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Samedi')%}
 							{% if (c.professeur.id == professeur.id)%}
                             	{% if (c.typeCours.libelle == 'Collectif')%}
@@ -245,11 +266,14 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+					</a>
                 </td>
 
                 <td>
                     {% for c in professeur.cours %}
                         
+						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
+
                         {% if (c.jour.libelle == 'Dimanche')%}
 							{% if (c.professeur.id == professeur.id)%}
                             	{% if (c.typeCours.libelle == 'Collectif')%}
@@ -278,11 +302,10 @@
                         	{% endif %}
 						{% endif %}
                     {% endfor %}
+					</a>
+</table>
                 </td>
             </tr>
-            <tbody>
-        </table>
 <br/>
 <br/>
-
 {% endblock %}
