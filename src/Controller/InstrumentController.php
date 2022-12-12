@@ -6,6 +6,7 @@ use App\Entity\Instrument;
 use App\Entity\InterPret;
 use App\Entity\ContratPret;
 use App\Form\InstrumentType;
+use App\Form\InstrumentModifierType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
