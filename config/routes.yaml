@@ -14,6 +14,10 @@ instrumentConsulter:
     path: /instrument/consulter/{id}
     controller: App\Controller\InstrumentController::consulterInstruments
 
+instruContratPretLister:
+    path: /contratPret/lister/{id}
+    controller: App\Controller\InstrumentController::listerContratPretByInstru
+
 instrumentAjouter:
     path: /instrument/ajouter
     controller: App\Controller\InstrumentController::ajouterInstruments
@@ -52,12 +56,11 @@ classeInstrumentConsulter:
     path: /classeInstrument/consulter/{id}
     controller: App\Controller\ClasseInstrumentController::consulterClasseInstrument
 
-
 # Classe Pret
 
-pretConsulter:
-    path: /pret/consulter/{id}
-    controller: App\Controller\PretController::consulterPret
+contratPretAjouter:
+    path: /contratPret/ajouter
+    controller: App\Controller\ContratPretController::ajouterContratPret
 
 # Professeur
 

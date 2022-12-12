@@ -26,7 +26,7 @@ class ClasseInstrumentController extends AbstractController
 
         if (!$classeInstrument) {
             throw $this->createNotFoundException(
-            'Aucun responsable trouvé avec le numéro '.$id
+            'Aucune classe trouvée avec le numéro '.$id
             );
         }
     

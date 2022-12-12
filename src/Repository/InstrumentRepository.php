@@ -39,6 +39,20 @@ class InstrumentRepository extends ServiceEntityRepository
         }
     }
 
+    
+    
+
+    public function findAllInstrumentByPretAuj(String $dateJour) {
+        $qb = $this->createQueryBuilder('c');
+        $qb->select('I')
+        ->from('App\Entity\Instrument', 'I')
+        ->leftJoin('I.contratPret', 'C')
+        ->where ('C.dateFin < :dateJ or C.dateFin is NULL')
+        ->setParameter('dateJ', $dateJour);
+        return $qb;
+    }
+
+
 //    /**
 //     * @return Instrument[] Returns an array of Instrument objects
 //     */

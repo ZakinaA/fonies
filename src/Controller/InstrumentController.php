@@ -4,6 +4,7 @@ namespace App\Controller;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Instrument;
 use App\Entity\InterPret;
+use App\Entity\ContratPret;
 use App\Form\InstrumentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +19,16 @@ class InstrumentController extends AbstractController
         return $this->render('instrument/index.html.twig', [
             'controller_name' => 'InstrumentController',
         ]);
+    }
+
+    public function listerContratPretByInstru(managerRegistry $doctrine, int $id)
+    {
+        $instrument = $doctrine->getRepository(Instrument::class)->find($id);
+
+        return $this->render('contrat_pret/lister.html.twig', [
+            'instrument' => $instrument,]);	
+
+
     }
 
     public function consulterInstruments(managerRegistry $doctrine, int $id){
