@@ -48,4 +48,7 @@ return $this->render('responsable/lister.html.twig', [
 'pResponsables' => $responsables,]);	
 
 }
+
+
+
 }
