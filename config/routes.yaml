@@ -28,6 +28,10 @@ responsableLister:
     path: /responsable/lister
     controller: App\Controller\ResponsableController::listerResponsable
 
+responsableAjouter:
+    path: /responsable/ajouter
+    controller: App\Controller\ResponsableController::ajouterResponsable
+
 # Eleve
 
 eleveConsulter:
