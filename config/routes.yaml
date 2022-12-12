@@ -54,6 +54,10 @@ eleveAjouter:
     path: /eleve/ajouter
     controller: App\Controller\EleveController::ajouterEleve
 
+eleveModifier:
+    path: /eleve/modifier/{id}
+    controller: App\Controller\EleveController::modifierEleve
+
 # Classe Instrument
 
 classeInstrumentConsulter:
