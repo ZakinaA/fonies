@@ -23,9 +23,16 @@
     	<td>Couleur dominante : </td><td>{{instrument.couleur}}</td>
     </tr>
     <tr>
-    	<td>Utilisation : </td>{% if instrument.Utilisation == null %}
+    	<td>Utilisation : </td>
+        {% if instrument.Utilisation == null %}
         
-    <td>Cet instrument n'a pas encore été prêté</td>{% else %}<td>{{instrument.Utilisation}}{% for co in instrument.contratPret %} : <a href="{{ path('pretConsulter', { 'id': co.id }) }}">Voir la liste des prets</a></td>{% endfor %}{% endif %}
+        <td>Cet instrument n'a pas encore été prêté</td>
+        
+        {% else %}
+        <td>{{instrument.Utilisation}} </br>
+            <a href="{{ path('instruContratPretLister', { 'id': instrument.id }) }}">Voir la liste des prets</a> </br>
+        
+        {% endif %}
     </tr>
 
 

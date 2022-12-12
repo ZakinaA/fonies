@@ -14,6 +14,10 @@ instrumentConsulter:
     path: /instrument/consulter/{id}
     controller: App\Controller\InstrumentController::consulterInstruments
 
+instruContratPretLister:
+    path: /contratPret/lister/{id}
+    controller: App\Controller\InstrumentController::listerContratPretByInstru
+
 # Responsable
 
 responsableConsulter:
@@ -42,10 +46,6 @@ classeInstrumentConsulter:
 
 
 # Classe Pret
-
-pretConsulter:
-    path: /pret/consulter/{id}
-    controller: App\Controller\PretController::consulterPret
 
 pretAjouter:
     path: /contratPret/ajouter

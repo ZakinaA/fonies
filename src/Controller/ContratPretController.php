@@ -20,6 +20,7 @@ class ContratPretController extends AbstractController
         ]);
     }
 
+
     public function ajouterContratPret(ManagerRegistry $doctrine, Request $request){
         $contratPret = new contratPret();
         $form = $this->createForm(ContratPretType::class, $contratPret);
