@@ -36,6 +36,10 @@ responsableAjouter:
     path: /responsable/ajouter
     controller: App\Controller\ResponsableController::ajouterResponsable
 
+responsableModifier:
+    path: /responsable/modifier/{id}
+    controller: App\Controller\ResponsableController::modifierResponsable
+
 # Eleve
 
 eleveConsulter:

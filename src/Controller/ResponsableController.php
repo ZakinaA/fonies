@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Responsable;
 use App\Entity\Eleve;
 use App\Form\ResponsableType;
+use App\Form\ResponsableModifierType;
 
 
 class ResponsableController extends AbstractController
@@ -72,4 +73,30 @@ public function ajouterResponsable(Request $request,ManagerRegistry $doctrine){
 	}
 }
 
+public function modifierResponsable(ManagerRegistry $doctrine, $id, Request $request){
+ 
+    //récupération du responsable dont l'id est passé en paramètre
+    $responsable = $doctrine->getRepository(Responsable::class)->find($id);
+ 
+    if (!$responsable) {
+        throw $this->createNotFoundException('Aucun responsable trouvé avec le numéro '.$id);
+    }
+    else
+    {
+            $form = $this->createForm(ResponsableModifierType::class, $responsable);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+ 
+                 $responsable = $form->getData();
+                 $entityManager = $doctrine->getManager();
+                 $entityManager->persist($responsable);
+                 $entityManager->flush();
+                 return $this->render('responsable/consulter.html.twig', ['responsable' => $responsable,]);
+           }
+           else{
+                return $this->render('responsable/modifier.html.twig', array('form' => $form->createView(),));
+           }
+        }
+ }
 }
