@@ -1,0 +1,84 @@
+{# templates/eleve/ajouter.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un élève{% endblock %}
+
+{% block contenu %}
+
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Ajouter un élève</h4>
+                  <p class="card-description">
+                    Rentrez les informations du nouvel élève
+                  </p>
+                  {{ form_start(form, 
+                    {class : 'form-sample'}) 
+                    }}
+                    <div class="form-group">
+                    <label for="nom">Nom</label>
+                      {{ form_row(form.nom, 
+                        {class : 'form-control'},
+                        {id : 'nom'}) }}
+                    </div>
+                    <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                      {{ form_row(form.prenom, 
+                        {class : 'form-control'},
+                        {id : 'prenom'}) }}
+                    </div>
+                    <div class="form-group">
+                      <label for="numRue">Numéro de rue</label>
+                      {{ form_row(form.numRue, 
+                      {class : 'form-control'},
+                        {id : 'numRue'}) }}
+                    </div>
+                    <div class="form-group">
+                      <label for="Rue">Rue</label>
+                      {{ form_row(form.rue, 
+                      {class : 'form-control'},
+                        {id : 'Rue'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="code_postal">Code postal</label>
+                      {{ form_row(form.code_postale, 
+                      {class : 'form-control'},
+                        {id : 'code_postal'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="ville">Ville</label>
+                      {{ form_row(form.ville, 
+                      {class : 'form-control'},
+                        {id : 'ville'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="telephone">Telephone</label>
+                      {{ form_row(form.telephone, 
+                      {class : 'form-control'},
+                        {id : 'telephone'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="email">Adresse E-mail</label>
+                      {{ form_row(form.email, 
+                      {class : 'form-control'},
+                        {id : 'email'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="responsable">Responsable</label>
+                      {{ form_row(form.responsable, 
+                      {class : 'form-control'},
+                        {id : 'responsable'}) }}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Valider</button>
+                    <button class="btn btn-light">Annuler</button>
+                {{ form_end(form) }}
+                </div>
+              </div>
+
+{% endblock %}

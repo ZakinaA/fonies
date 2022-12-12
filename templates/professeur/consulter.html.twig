@@ -48,8 +48,9 @@
         <tbody>
             <tr>
                 <td>
-                    {% for c in pCours %}
-
+                    
+                    {% for c in professeur.cours %}
+                        
                         <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
                         {% if (c.jour.libelle == 'Lundi')%}
@@ -86,7 +87,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
 					<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
@@ -124,7 +125,9 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    
+                    {% for c in professeur.cours %}
+                        
 
                         <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
@@ -157,7 +160,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
 						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
@@ -194,7 +197,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
 					<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
@@ -231,7 +234,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
 						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
@@ -267,7 +270,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
 						<a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
