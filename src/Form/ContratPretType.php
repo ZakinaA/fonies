@@ -51,7 +51,7 @@ class ContratPretType extends AbstractType
                                                         function ($eleve) {
                                                             $prenom= $eleve->getPrenom();
                                                             $nom= $eleve->getNom();
-                                                            return $nom." ".$prenom;
+                                                            return strtoupper($nom)." ".$prenom;
                                                         }, 
                                                     'label' => ' '  ))
         ;

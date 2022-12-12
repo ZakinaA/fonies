@@ -16,13 +16,13 @@
                     {class : 'form-sample'}) 
                     }}
                     <div class="form-group">
-                    <label for="agemini">Age Minimume</label>
+                    <label for="agemini">Age Minimum</label>
                       {{ form_row(form.agemini, 
                         {class : 'form-control'},
                         {id : 'agemini'}) }}
                     </div>
                     <div class="form-group">
-                    <label for="agemax">Age Maximume</label>
+                    <label for="agemax">Age Maximum</label>
                       {{ form_row(form.agemax,
                         {class : 'form-control'},
                         {id : 'agemax'}) }}
@@ -40,8 +40,16 @@
                         {id : 'heureFin'}) }}
                     </div>
 
+                    
                     <div class="form-group">
-                      <label for="nb_places">Nombre de place disponible</label>
+                      <label for="type_cours_id">Type de cours</label>
+                      {{ form_row(form.typeCours, 
+                      {class : 'form-control'},
+                        {id : 'typeCours'}) }}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="nb_places">Nombres de places (si cours collectif)</label>
                       {{ form_row(form.nbPlaces, 
                       {class : 'form-control'},
                         {id : 'nbPlaces'}) }}
@@ -61,12 +69,6 @@
                         {id : 'jour'}) }}
                     </div>
 
-                    <div class="form-group">
-                      <label for="type_cours_id">Cours individuel ou collectif</label>
-                      {{ form_row(form.typeCours, 
-                      {class : 'form-control'},
-                        {id : 'typeCours'}) }}
-                    </div>
 
                     <div class="form-group">
                       <label for="typeInstrument">Instrument appris</label>
