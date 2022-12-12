@@ -48,7 +48,7 @@
         <tbody>
             <tr>
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
                         {% if (c.jour.libelle == 'Lundi')%}
 							{% if (c.professeur.id == professeur.id)%}
@@ -82,7 +82,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
                         {% if (c.jour.libelle == 'Mardi')%}
 							{% if (c.professeur.id == professeur.id)%}
@@ -117,7 +117,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
                         {% if (c.jour.libelle == 'Mercredi')%}
 							{% if (c.professeur.id == professeur.id)%}
@@ -147,7 +147,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
                         {% if (c.jour.libelle == 'Jeudi')%}
 							{% if (c.professeur.id == professeur.id)%}
@@ -181,7 +181,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
                         {% if (c.jour.libelle == 'Vendredi')%}
 							{% if (c.professeur.id == professeur.id)%}
@@ -215,7 +215,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
                         {% if (c.jour.libelle == 'Samedi')%}
 							{% if (c.professeur.id == professeur.id)%}
@@ -248,7 +248,7 @@
                 </td>
 
                 <td>
-                    {% for c in pCours %}
+                    {% for c in professeur.cours %}
                         
                         {% if (c.jour.libelle == 'Dimanche')%}
 							{% if (c.professeur.id == professeur.id)%}

@@ -49,3 +49,7 @@ professeurConsulter:
 professeurLister:
     path: /professeur/lister
     controller: App\Controller\ProfesseurController::listerProfesseur
+
+professeurAjouter:
+    path: /professeur/ajouter
+    controller: App\Controller\ProfesseurController::ajouterProfesseur
