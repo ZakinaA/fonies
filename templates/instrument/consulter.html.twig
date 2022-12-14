@@ -36,9 +36,12 @@
         
         {% else %}
         <td>{{instrument.Utilisation}} </br>
+        {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+        {% if app.user.email == "admin@admin.com" %}
             <a href="{{ path('instruContratPretLister', { 'id': instrument.id }) }}">Voir la liste des prets</a> </br>
              <a href="{{ path('contratPretAjouter') }}">Ajouter un prêt</a> </br>
-        
+        {% endif %}
+        {% endif %}
         {% endif %}
 
     </tr>
