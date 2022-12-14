@@ -3,6 +3,12 @@
 {% block contenu %}
 <h3>Fiche {{instrument.intitule}} ({{instrument.typeInstrument.libelle}})</h3>
 </br>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    {% if app.user.email == "admin@admin.com"%}
+	<a href="{{ path('instrumentModifier', { 'id': instrument.id}) }}">Modifier </a>
+	{% endif %}
+    {% endif %}
 <table class="table">
     <tr>
     	<td>Date d'achat : </td><td>{{instrument.dateAchat|date('d/m/20y')}}</td>
