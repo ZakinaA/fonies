@@ -20,4 +20,4 @@
 
 ## Page d'accueil :
 
-![image](https://user-images.githubusercontent.com/114416410/207565510-693bb48d-c664-495c-8e3d-eb03eff8e090.png)
+http://172.20.177.77/fonies/public/accueil
