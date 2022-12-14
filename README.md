@@ -8,6 +8,8 @@
     
 ## Compte à utiliser :
 >Compte admin: admin@admin.com / mpFonies
+>Autre compte : SimHorrellou14@gmail.com / Simon14
+
 ## Lien du thème bootstrap :
 
 >Thème gratuit : Skydash
