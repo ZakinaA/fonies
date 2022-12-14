@@ -42,15 +42,14 @@ class Professeur
     #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Enseigne::class)]
     private Collection $enseignes;
 
-    #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: User::class)]
-    private Collection $emailU;
+    #[ORM\ManyToOne(inversedBy: 'professeurs')]
+    private ?User $emailU = null;
 
     public function __construct()
     {
         $this->comptes = new ArrayCollection();
         $this->cours = new ArrayCollection();
         $this->enseignes = new ArrayCollection();
-        $this->emailU = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -202,33 +201,16 @@ class Professeur
         return $this;
     }
 
-    /**
-     * @return Collection<int, User>
-     */
-    public function getEmailU(): Collection
+    public function getEmailU(): ?User
     {
         return $this->emailU;
     }
 
-    public function addEmailU(User $emailU): self
+    public function setEmailU(?User $emailU): self
     {
-        if (!$this->emailU->contains($emailU)) {
-            $this->emailU->add($emailU);
-            $emailU->setProfesseur($this);
-        }
+        $this->emailU = $emailU;
 
         return $this;
     }
 
-    public function removeEmailU(User $emailU): self
-    {
-        if ($this->emailU->removeElement($emailU)) {
-            // set the owning side to null (unless already changed)
-            if ($emailU->getProfesseur() === $this) {
-                $emailU->setProfesseur(null);
-            }
-        }
-
-        return $this;
-    }
 }

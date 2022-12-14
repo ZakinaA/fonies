@@ -91,6 +91,9 @@ class Eleve
     #[ORM\OneToMany(mappedBy: 'eleve', targetEntity: ContratPret::class)]
     private Collection $contratPret;
 
+    #[ORM\ManyToOne(inversedBy: 'eleves')]
+    private ?User $emailU = null;
+
     public function __construct()
     {
         $this->compte = new ArrayCollection();
@@ -267,6 +270,18 @@ class Eleve
                 $contratPret->setEleve(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEmailU(): ?User
+    {
+        return $this->emailU;
+    }
+
+    public function setEmailU(?User $emailU): self
+    {
+        $this->emailU = $emailU;
 
         return $this;
     }

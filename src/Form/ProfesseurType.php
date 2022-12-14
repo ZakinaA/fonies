@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Professeur;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,8 +23,8 @@ class ProfesseurType extends AbstractType
             ->add('rue', TextType::class, array('label'=>'  '))
             ->add('code_postale', TextType::class, array('label'=>'  '))
             ->add('ville', TextType::class, array('label'=>'  '))
-            ->add('email', TextType::class, array('label'=>'  '))
             ->add('telephone', TextType::class, array('label'=>'  '))
+            ->add('emailU', EntityType::class, array('label' =>'  ','class' => 'App\Entity\User','choice_label' => 'email'))
         ;
     }
 
