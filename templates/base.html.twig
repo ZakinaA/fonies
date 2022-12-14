@@ -41,16 +41,19 @@
                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                {% for p in app.user.professeurs %}
                 <p>Bonjour <a href="{{ path('professeurConsulter', { 'id': p.id }) }}">{{ app.user.email }}</a></p>
+                </br>
                 <p> Professeur </p>
                {% endfor %}
 
                 {% for p in app.user.eleves %}
                 <p>Bonjour <a href="{{ path('eleveConsulter', { 'id': p.id }) }}">{{ app.user.email }}</a></p>
+                </br>
                 <p> Eleve </p>
                 {% endfor %}
 
                 {% for p in app.user.responsables %}
                 <p>Bonjour <a href="{{ path('responsableConsulter', { 'id': p.id }) }}">{{ app.user.email }}</a></p>
+                </br>
                 <p> Responsable </p>
                 {% endfor %}
 
