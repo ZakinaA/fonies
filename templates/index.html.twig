@@ -3,7 +3,19 @@
 {% block title %}Accueil{% endblock %}
 
 {% block style %}
-        
+tr{
+    text-align:center;
+}  
+br{
+    margin-bottom: 7px;
+}
+
+.cours{
+    border: solid 1px;
+    margin-bottom : 10px;
+    padding : 5px;
+    border-radius:10px;
+}
 {% endblock %}
 
 {% block contenu %}
@@ -32,22 +44,25 @@
 
                         {% if (c.jour.libelle == 'Lundi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 {{ c.nbPlaces - c.inscriptions.count() }}  place(s) disponible(s)</br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 1 place disponible</br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -57,24 +72,28 @@
                         
                         <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
+                        
                         {% if (c.jour.libelle == 'Mardi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 1 place disponible</br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -84,24 +103,28 @@
 
                     <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
+
                         {% if (c.jour.libelle == 'Mercredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 1 place disponible</br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -111,24 +134,28 @@
                         
                         <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
+                        
                         {% if (c.jour.libelle == 'Jeudi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 1 place disponible</br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -138,24 +165,28 @@
                         
                         <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
+                        
                         {% if (c.jour.libelle == 'Vendredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 1 place disponible</br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -165,24 +196,28 @@
                         
                         <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
+                        
                         {% if (c.jour.libelle == 'Samedi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 1 place disponible</br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -192,24 +227,28 @@
                         
                         <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
 
+                        
                         {% if (c.jour.libelle == 'Dimanche')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() < c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 {{ c.nbPlaces - c.inscriptions.count() }} place(s) disponible(s)</br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() == 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
                                 1 place disponible</br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -237,22 +276,26 @@
 
                     <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
+
                         {% if (c.jour.libelle == 'Lundi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -264,20 +307,23 @@
 
                         {% if (c.jour.libelle == 'Mardi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -287,20 +333,23 @@
 
                     <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
+
                         {% if (c.jour.libelle == 'Mercredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
                     {% endfor %}
@@ -312,22 +361,26 @@
 
                     <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
+
                         {% if (c.jour.libelle == 'Jeudi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -339,20 +392,23 @@
                         
                         {% if (c.jour.libelle == 'Vendredi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -362,22 +418,26 @@
 
                     <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
+
                         {% if (c.jour.libelle == 'Samedi')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
@@ -387,22 +447,26 @@
 
                     <a href="{{ path('coursConsulter', { 'id': c.id }) }}">
                         
+
                         {% if (c.jour.libelle == 'Dimanche')%}
                             {% if (c.typeCours.libelle == 'Collectif' and c.inscriptions.count() >= c.nbPlaces)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                             {% if (c.typeCours.libelle == 'Individuel' and c.inscriptions.count() > 0)%}
-                                Cours de {{ c.typeInstrument.libelle }}</br>
-                                Avec {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
-                                De {{ c.heureDebut|date("H:i") }} à {{ c.heureFin|date("H:i") }}</br>
+                                <div class="cours">
+                                Cours de <b>{{ c.typeInstrument.libelle }}</b></br>
+                                {{ c.professeur.nom }} {{ c.professeur.prenom }}</br>
+                                <b>{{ c.heureDebut|date("H:i") }}</b> - <b>{{ c.heureFin|date("H:i") }}</b></br>
                                 Cours {{ c.typeCours.libelle }} </br>
-                                <hr>
+                                </div>
                             {% endif %}
                         {% endif %}
+                        
                     {% endfor %}
                 </a>
                 </td>
