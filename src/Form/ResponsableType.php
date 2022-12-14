@@ -28,6 +28,7 @@ class ResponsableType extends AbstractType
             ->add('email', TextType::class, array('label'=>'  '))
             ->add('telephone', TextType::class, array('label'=>'  '))
             ->add('tranche', EntityType::class, array('class'=>'App\Entity\Tranche','choice_label'=>'id', 'label'=>'  '))
+            ->add('emailU', EntityType::class, array('label' =>'  ','class' => 'App\Entity\User','choice_label' => 'email'))
         ;
     }
 

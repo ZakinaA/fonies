@@ -36,6 +36,7 @@ class EleveType extends AbstractType
                 return strtoupper($nom)." ".$prenom;
             }, 
             'label'=>'  '))
+            ->add('emailU', EntityType::class, array('label' =>'  ','class' => 'App\Entity\User','choice_label' => 'email'))
         ;
     }
 

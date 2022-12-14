@@ -39,7 +39,25 @@
           <li class="nav-item nav-search d-none d-lg-block">
             <div class="input-group">
                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-              <p>Bonjour {{ app.user.email }}</p>
+               {% for p in app.user.professeurs %}
+                <p>Bonjour <a href="{{ path('professeurConsulter', { 'id': p.id }) }}">{{ app.user.email }}</a></p>
+                <p> Professeur </p>
+               {% endfor %}
+
+                {% for p in app.user.eleves %}
+                <p>Bonjour <a href="{{ path('eleveConsulter', { 'id': p.id }) }}">{{ app.user.email }}</a></p>
+                <p> Eleve </p>
+                {% endfor %}
+
+                {% for p in app.user.responsables %}
+                <p>Bonjour <a href="{{ path('responsableConsulter', { 'id': p.id }) }}">{{ app.user.email }}</a></p>
+                <p> Responsable </p>
+                {% endfor %}
+
+                {% if app.user.email == "admin@admin.com" %}
+                  Bonjour admin
+                {% endif %}
+
               {% endif %}
               </div>
           </li>
@@ -106,7 +124,11 @@
             <div class="collapse" id="responsable">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{path('responsableLister')}}">Lister</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{path('responsableAjouter')}}">Ajouter</a></li>              
+                {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                {% if app.user.email == "admin@admin.com" %}
+                <li class="nav-item"> <a class="nav-link" href="{{path('responsableAjouter')}}">Ajouter</a></li>
+                {% endif %}
+                {% endif %}              
               </ul>
             </div>
           </li>
@@ -120,7 +142,11 @@
             <div class="collapse" id="professeur">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{path('professeurLister')}}">Lister</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                {% if app.user.email == "admin@admin.com" %}
                 <li class="nav-item"> <a class="nav-link" href="{{path('professeurAjouter')}}">Ajouter</a></li>
+                {% endif %}
+                {% endif %}
               </ul>
             </div>
           </li>
@@ -134,7 +160,11 @@
             <div class="collapse" id="eleve">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{path('eleveLister')}}">Lister</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                {% if app.user.email == "admin@admin.com" %}
                 <li class="nav-item"> <a class="nav-link" href="{{path('eleveAjouter')}}">Ajouter</a></li>
+                {% endif %}
+                {% endif %}
               </ul>
             </div>
           </li>          

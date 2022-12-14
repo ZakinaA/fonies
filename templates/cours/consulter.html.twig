@@ -7,6 +7,12 @@
 
     <h3>Informations du cours de {{cours.typeInstrument.libelle}} du {{cours.jour.libelle}}</h3>
     <br />
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    {% if app.user.email == "admin@admin.com"%}
+	<a href="{{ path('coursModifier', { 'id': cours.id}) }}">Modifier </a>
+	{% endif %}
+    {% endif %}
 	
   	<table class="table">
 

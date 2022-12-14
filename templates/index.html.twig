@@ -22,7 +22,14 @@ br{
 
 
 <h3>LISTE DES COURS DISPONIBLES</h3>
-<a href="{{path('coursAjouter')}}"><button class="btn btn-outline-primary btn-fw">Ajouter un cours</button></a>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+{% if app.user.email == "admin@admin.com" %}
+    <a href="{{path('coursAjouter')}}"><button class="btn btn-outline-primary btn-fw">Ajouter un cours</button></a>
+{% endif %}
+{% endif %}
+
+
 		<table class="table">
         <thead>
             <tr>
@@ -476,7 +483,13 @@ br{
 
 
 <h3> Les instruments </h3>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+{% if app.user.email == "admin@admin.com" %}
 <a href="{{path('instrumentAjouter')}}"><button class="btn btn-outline-primary btn-fw">Ajouter un instrument</button></a>
+{% endif %}
+{% endif %}
+
 			<table  class="table">
 			<tr>
 				<th>Nom</th>

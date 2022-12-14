@@ -18,7 +18,12 @@
 </br>
 
 
-<h4>Les Prêts</h4>
+<h4>Les Prêts</h4> 
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    {% if app.user.email == "admin@admin.com" %}
+	<a href="{{ path('contratPretAjouter')}}">Ajouter un prêt </a>
+	{% endif %}
+    {% endif %}
 <table class="table">
 		<tr><th>Eleve</th><th>Date du prêt</th><th>Date de rendu</th><th>Etat avant prêt</th><th>Etat après prêt</th><th>Quotite</th></tr>
         {% for contrat in instrument.contratPret %}

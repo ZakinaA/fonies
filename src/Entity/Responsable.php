@@ -45,6 +45,9 @@ class Responsable
     #[ORM\OneToMany(mappedBy: 'responsable', targetEntity: Eleve::class)]
     private Collection $eleve;
 
+    #[ORM\ManyToOne(inversedBy: 'responsables')]
+    private ?User $emailU = null;
+
     public function __construct()
     {
         $this->compte = new ArrayCollection();
@@ -190,6 +193,18 @@ class Responsable
                 $eleve->setResponsable(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEmailU(): ?User
+    {
+        return $this->emailU;
+    }
+
+    public function setEmailU(?User $emailU): self
+    {
+        $this->emailU = $emailU;
 
         return $this;
     }

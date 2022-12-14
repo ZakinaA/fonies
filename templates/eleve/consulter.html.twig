@@ -24,7 +24,11 @@ br{
 	
   	<table class="table">
     <h3>Vos informations</h3>
-
+{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    {% if app.user.email == "admin@admin.com" or  app.user == eleve.emailU %}
+	<a href="{{ path('eleveModifier', { 'id': eleve.id}) }}">Modifier </a>
+{% endif %}
+{% endif %}
     <tr>
     	<td>Nom : </td><td>{{eleve.nom}}</td></tr></tr>
     <tr>

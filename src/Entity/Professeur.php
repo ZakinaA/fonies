@@ -42,6 +42,9 @@ class Professeur
     #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Enseigne::class)]
     private Collection $enseignes;
 
+    #[ORM\ManyToOne(inversedBy: 'professeurs')]
+    private ?User $emailU = null;
+
     public function __construct()
     {
         $this->comptes = new ArrayCollection();
@@ -197,4 +200,17 @@ class Professeur
 
         return $this;
     }
+
+    public function getEmailU(): ?User
+    {
+        return $this->emailU;
+    }
+
+    public function setEmailU(?User $emailU): self
+    {
+        $this->emailU = $emailU;
+
+        return $this;
+    }
+
 }
