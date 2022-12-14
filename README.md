@@ -23,3 +23,7 @@
 ## Page d'accueil :
 
 http://172.20.177.77/fonies/public/accueil
+
+## Diagramme de classe :
+
+![Looping1](https://user-images.githubusercontent.com/114416410/207577952-3e640536-847b-40af-96bb-4cbf8d983f56.jpg)
