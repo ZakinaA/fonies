@@ -7,8 +7,10 @@
     4.@ThomasVerEecke - Thomas Ver Eecke
     
 ## Compte à utiliser :
->Compte admin: admin@admin.com / mpFonies
->Autre compte : SimHorrellou14@gmail.com / Simon14
+    Compte admin: admin@admin.com / mpFonies
+    Compte eleve : SimHorrellou14@gmail.com / Simon14
+    Compte professeur : charlottelau50@gmail.com / 123456789
+    Compte responsable :Robert.Jean@gmail.com / RobertJean
 
 ## Lien du thème bootstrap :
 
