@@ -51,6 +51,9 @@
                 <p>Bonjour <a href="{{ path('responsableConsulter', { 'id': p.id }) }}">{{ app.user.email }}</a></p>
                 {% endfor %}
 
+                {% if app.user.email == "admin@admin.com" %}
+                  Bonjour admin
+                {% endif %}
 
               {% endif %}
               </div>

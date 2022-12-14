@@ -23,6 +23,12 @@ br{
 	
   	<table class="table">
     <h3>Vos informations</h3>
+	
+	{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    {% if app.user.email == "admin@admin.com" or  app.user == professeur.emailU %}
+	<a href="{{ path('professeurModifier', { 'id': professeur.id}) }}">Modifier </a>
+	{% endif %}
+    {% endif %}
 
     <tr>
     	<td>Nom : </td><td>{{professeur.nom}}</td></tr></tr>
@@ -46,6 +52,7 @@ br{
     <tr>
 
     </table>
+
 	<br />
 	<br />
 <h3>LISTE DES COURS</h3>

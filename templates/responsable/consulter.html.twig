@@ -10,6 +10,12 @@
   	<table class="table">
     <h3>Vos informations</h3>
 
+	{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+    {% if app.user.email == "admin@admin.com" or  app.user == responsable.emailU %}
+	<a href="{{ path('responsableModifier', { 'id': responsable.id}) }}">Modifier </a>
+	{% endif %}
+    {% endif %}
+
     <tr>
     	<td>Nom : </td><td>{{responsable.nom}}</td></tr></tr>
     <tr>
