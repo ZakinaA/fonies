@@ -58,8 +58,14 @@
     
     
     <tr>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') and app.user.email == "admin@admin.com"%}
 		<td><a href="{{ path('eleveConsulter', { 'id': i.eleve.id }) }}">{{ i.eleve.nom }}</a></td>
         <td><a href="{{ path('eleveConsulter', { 'id': i.eleve.id }) }}">{{ i.eleve.prenom}}</a></td>
+    {% else %}
+        <td>{{ i.eleve.nom }}</td>
+        <td>{{ i.eleve.prenom}}</td>
+    {% endif %}
+
 	</tr>
 
   {% else %}
