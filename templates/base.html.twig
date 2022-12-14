@@ -115,6 +115,10 @@
             </a>
           </li>
 
+          
+          {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+          {% if app.user.email == "admin@admin.com" %}
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#responsable" aria-expanded="false" aria-controls="responsable">
               <i class="icon-layout menu-icon"></i>
@@ -124,14 +128,13 @@
             <div class="collapse" id="responsable">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{path('responsableLister')}}">Lister</a></li>
-                {% if is_granted('IS_AUTHENTICATED_FULLY')%}
-                {% if app.user.email == "admin@admin.com" %}
                 <li class="nav-item"> <a class="nav-link" href="{{path('responsableAjouter')}}">Ajouter</a></li>
-                {% endif %}
-                {% endif %}              
+           
               </ul>
             </div>
           </li>
+          {% endif %}
+          {% endif %}   
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#professeur" aria-expanded="false" aria-controls="professeur">
@@ -150,7 +153,10 @@
               </ul>
             </div>
           </li>
-
+          
+          
+          {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+          {% if app.user.email == "admin@admin.com" %}
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#eleve" aria-expanded="false" aria-controls="../eleve">
               <i class="icon-layout menu-icon"></i>
@@ -160,14 +166,12 @@
             <div class="collapse" id="eleve">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{path('eleveLister')}}">Lister</a></li>
-                {% if is_granted('IS_AUTHENTICATED_FULLY')%}
-                {% if app.user.email == "admin@admin.com" %}
                 <li class="nav-item"> <a class="nav-link" href="{{path('eleveAjouter')}}">Ajouter</a></li>
-                {% endif %}
-                {% endif %}
               </ul>
             </div>
-          </li>          
+          </li>    
+          {% endif %}
+          {% endif %}      
           
           
         </ul>
