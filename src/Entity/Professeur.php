@@ -42,11 +42,15 @@ class Professeur
     #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: Enseigne::class)]
     private Collection $enseignes;
 
+    #[ORM\OneToMany(mappedBy: 'professeur', targetEntity: User::class)]
+    private Collection $emailU;
+
     public function __construct()
     {
         $this->comptes = new ArrayCollection();
         $this->cours = new ArrayCollection();
         $this->enseignes = new ArrayCollection();
+        $this->emailU = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -192,6 +196,36 @@ class Professeur
             // set the owning side to null (unless already changed)
             if ($enseigne->getProfesseur() === $this) {
                 $enseigne->setProfesseur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getEmailU(): Collection
+    {
+        return $this->emailU;
+    }
+
+    public function addEmailU(User $emailU): self
+    {
+        if (!$this->emailU->contains($emailU)) {
+            $this->emailU->add($emailU);
+            $emailU->setProfesseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEmailU(User $emailU): self
+    {
+        if ($this->emailU->removeElement($emailU)) {
+            // set the owning side to null (unless already changed)
+            if ($emailU->getProfesseur() === $this) {
+                $emailU->setProfesseur(null);
             }
         }
 
