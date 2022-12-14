@@ -2,6 +2,22 @@
 
 {% block title %}Fiche de l'élève{% endblock %}
 
+{% block style %}
+.tabcours{
+    text-align:center;
+}  
+br{
+    margin-bottom: 7px;
+}
+
+.cours{
+    border: solid 1px;
+    margin-bottom : 10px;
+    padding : 5px;
+    border-radius:10px;
+}
+{% endblock %}
+
 {% block contenu %}
     <h3>Page de l'eleve :</h3>
     <br />
@@ -64,20 +80,23 @@
                       <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
 
                         {% if (i.cours.jour.libelle == 'Lundi')%}
-                                Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
-                                Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
-                                De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
-                                Cours {{ i.cours.typeCours.libelle }} </br>
-                                <b>Les paiements :</br></b>
-                                <p STYLE="padding-left:20px;">
-                                  {% for p in i.paiement %}
-                                    {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
-                                    </br>
-                                    {% else %}
-                                    Aucun paiement pour ce cours
-                                  {% endfor %}
-                                </p>
-                                <hr>
+                          <div class="cours">
+                            <div class="tabcours">
+                              Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
+                              Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
+                              De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
+                              Cours {{ i.cours.typeCours.libelle }} </br>
+                            </div>
+                            <b>Les paiements :</br></b>
+                            <p STYLE="padding-left:20px;">
+                              {% for p in i.paiement %}
+                                {{ p.montant}}€ le {{ p.datePaiement|date("d/m/Y") }}
+                                </br>
+                                {% else %}
+                                Aucun paiement pour ce cours
+                              {% endfor %}
+                            </p>
+                          </div>
                         {% endif %}
                     {% endfor %}
                   </a>
@@ -89,10 +108,13 @@
                     <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Mardi')%}
+                            <div class="cours">
+                            <div class="tabcours">
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
                                 Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
                                 De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
                                 Cours {{ i.cours.typeCours.libelle }} </br>
+                                </div>
                                 <b>Les paiements :</br></b>
                                 <p STYLE="padding-left:20px;">
                                   {% for p in i.paiement %}
@@ -102,7 +124,7 @@
                                     Aucun paiement pour ce cours
                                   {% endfor %}
                                 </p>
-                                <hr>
+                                </div>
                         {% endif %}
                     {% endfor %}
                   </a>
@@ -114,10 +136,13 @@
                     <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Mercredi')%}
+                            <div class="cours">
+                            <div class="tabcours">
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
                                 Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
                                 De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
                                 Cours {{ i.cours.typeCours.libelle }} </br>
+                                </div>
                                 <b>Les paiements :</br></b>
                                 <p STYLE="padding-left:20px;">
                                   {% for p in i.paiement %}
@@ -127,7 +152,7 @@
                                     Aucun paiement pour ce cours
                                   {% endfor %}
                                 </p>
-                                <hr>
+                                </div>
                         {% endif %}
                     {% endfor %}
                   </a>
@@ -139,10 +164,13 @@
                     <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Jeudi')%}
+                            <div class="cours">
+                            <div class="tabcours">
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
                                 Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
                                 De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
                                 Cours {{ i.cours.typeCours.libelle }} </br>
+                                </div>
                                 <b>Les paiements :</br></b>
                                 <p STYLE="padding-left:20px;">
                                   {% for p in i.paiement %}
@@ -152,7 +180,7 @@
                                     Aucun paiement pour ce cours
                                   {% endfor %}
                                 </p>
-                                <hr>
+                                </div>
                         {% endif %}
                     {% endfor %}
                   </a>
@@ -164,10 +192,13 @@
                     <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Vendredi')%}
+                            <div class="cours">
+                            <div class="tabcours">
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
                                 Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
                                 De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
                                 Cours {{ i.cours.typeCours.libelle }} </br>
+                                </div>
                                 <b>Les paiements :</br></b>
                                 <p STYLE="padding-left:20px;">
                                   {% for p in i.paiement %}
@@ -177,7 +208,7 @@
                                     Aucun paiement pour ce cours
                                   {% endfor %}
                                 </p>
-                                <hr>
+                                </div>
                         {% endif %}
                     {% endfor %}
                   </a>
@@ -189,10 +220,13 @@
                     <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Samedi')%}
+                            <div class="cours">
+                            <div class="tabcours">
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
                                 Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
                                 De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
                                 Cours {{ i.cours.typeCours.libelle }} </br>
+                                </div>
                                 <b>Les paiements :</br></b>
                                 <p STYLE="padding-left:20px;">
                                   {% for p in i.paiement %}
@@ -202,7 +236,7 @@
                                     Aucun paiement pour ce cours
                                   {% endfor %}
                                 </p>
-                                <hr>
+                                </div>
                         {% endif %}
                     {% endfor %}
                   </a>
@@ -214,10 +248,13 @@
                     <a href="{{ path('coursConsulter', { 'id': i.cours.id }) }}">
                         
                         {% if (i.cours.jour.libelle == 'Dimanche')%}
+                            <div class="cours">
+                            <div class="tabcours">
                             Cours de <b>{{ i.cours.typeInstrument.libelle }}</b></br>
                                 Avec {{ i.cours.professeur.nom }} {{ i.cours.professeur.prenom }}</br>
                                 De {{ i.cours.heureDebut|date("H:i") }} à {{ i.cours.heureFin|date("H:i") }}</br>
                                 Cours {{ i.cours.typeCours.libelle }} </br>
+                                </div>
                                 <b>Les paiements :</br></b>
                                 <p STYLE="padding-left:20px;">
                                   {% for p in i.paiement %}
@@ -227,7 +264,7 @@
                                     Aucun paiement pour ce cours
                                   {% endfor %}
                                 </p>
-                                <hr>
+                                </div>
                         {% endif %}
                     {% endfor %}
                   </a>
